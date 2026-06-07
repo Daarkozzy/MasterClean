@@ -120,10 +120,8 @@ export default function ContactMap() {
           </p>
         </div>
 
-        {/* ── Top grid: form + map ── */}
-        <div className="contact__grid">
-
-          {/* Form */}
+        {/* ── Formulário Centralizado ── */}
+        <div className="contact__form-container" style={{ maxWidth: '600px', margin: '0 auto', marginBottom: '40px' }}>
           <div className="contact__form-wrapper card">
             <h3>Envie uma mensagem</h3>
             {errors.submit && <div style={{ color: '#ff4757', marginBottom: '16px', fontSize: '0.9rem' }}>⚠ {errors.submit}</div>}
@@ -181,21 +179,6 @@ export default function ContactMap() {
                 {loading ? '⏳ Enviando...' : sent ? '✓ Mensagem enviada!' : 'Enviar Mensagem →'}
               </button>
             </form>
-          </div>
-
-          {/* Map */}
-          <div className="contact__map-wrapper card">
-            <iframe
-              title="Localização MasterClean"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d235042.98022568685!2d-43.43388774736327!3d-22.91117388462038!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9bde559108a05b%3A0x50dc426c672fd24e!2sRio%20de%20Janeiro%2C%20RJ!5e0!3m2!1spt-BR!2sbr!4v1717800000000!5m2!1spt-BR!2sbr"
-              width="100%"
-              height="100%"
-              style={{ border: 0 }}
-              allowFullScreen=""
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              className="contact__iframe"
-            />
           </div>
         </div>
 

@@ -84,7 +84,6 @@
   color: rgba(255,255,255,0.7);
   transition: var(--transition-normal);
 }
-}
 
 .footer__social-btn svg { width: 18px; height: 18px; }
 

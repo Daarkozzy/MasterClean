@@ -1,0 +1,26 @@
+/* Reset default Vite layout styles */
+.app-wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Accessibility: Skip to main content link */
+.skip-to-main {
+  position: absolute;
+  top: -9999px;
+  left: -9999px;
+  z-index: 9999;
+  padding: 1rem;
+  background-color: #000;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 4px;
+}
+
+.skip-to-main:focus {
+  top: 10px;
+  left: 10px;
+  outline: 3px solid #ffd700;
+  outline-offset: 2px;
+}

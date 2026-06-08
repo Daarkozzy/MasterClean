@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Armchair, Car, WhatsappLogo, CheckCircle, ArrowRight } from '@phosphor-icons/react';
+import { Armchair, Car, Bus, Boat, WhatsappLogo, CheckCircle, ArrowRight } from '@phosphor-icons/react';
 import './Services.css';
 
 const tabs = [
@@ -20,8 +20,27 @@ const tabs = [
     icon: <Car size={24} weight="duotone" />,
     title: 'Higienização Automotiva Premium',
     description: 'Cuidado completo para o interior do seu veículo, com revitalização de plásticos e tecidos.',
-    checklist: ['Bancos, teto e carpetes', 'Revitalização de plásticos', 'Oxi-sanitização de dutos', 'Couro hidratado e protegido'],
-    waMsg: 'veicular'
+    checklist: ['Bancos, teto e carpetes', 'Revitalização de plásticos', 'Couro hidratado e protegido'],
+    waMsg: 'veicular',
+    image: '/images/carro.jpeg'
+  },
+  {
+    id: 'onibus',
+    label: 'Ônibus',
+    icon: <Bus size={24} weight="duotone" />,
+    title: 'Higienização Profissional de Bancos de Ônibus',
+    description: 'Higienização profunda dos bancos com remoção de manchas, sujeiras e eliminação de odores desagradáveis para conforto máximo dos passageiros.',
+    checklist: ['Higienização profunda dos bancos', 'Remoção de manchas e sujeiras', 'Eliminação de odores desagradáveis', 'Redução de ácaros e microrganismos', 'Secagem rápida', 'Atendimento no pátio da empresa', 'Horários flexíveis para não impactar a operação'],
+    waMsg: 'ônibus'
+  },
+  {
+    id: 'nauticos',
+    label: 'Náuticos',
+    icon: <Boat size={24} weight="duotone" />,
+    title: 'Higienização Profissional para Embarcações',
+    description: 'Cuidamos de cada detalhe para proporcionar mais conforto, beleza e durabilidade para o interior de sua embarcação.',
+    checklist: ['Higienização de poltronas', 'Higienização de carpetes e tapetes náuticos', 'Higienização de estofados gerais', 'Higienização de colchões náuticos', 'Higienização de estofados em geral'],
+    waMsg: 'náuticos'
   }
 ];
 

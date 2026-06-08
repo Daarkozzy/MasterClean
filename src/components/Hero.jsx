@@ -39,7 +39,7 @@ export default function Hero() {
           </motion.span>
 
           <motion.h1 className="hero__title" variants={itemVariants}>
-            Limpeza Profunda para <span className="hero__title--gold">Estofados</span> e Veículos
+            Limpeza Profunda para <span className="hero__title--gold">Estofados</span>, <span className="hero__title--gold">Veículos</span>, <span className="hero__title--gold">Ônibus</span> e <span className="hero__title--gold">Náuticos</span>
           </motion.h1>
 
           <motion.p className="hero__description" variants={itemVariants}>

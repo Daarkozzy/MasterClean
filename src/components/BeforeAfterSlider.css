@@ -115,3 +115,36 @@
   color: var(--brand-gold);
   font-weight: 700;
 }
+
+
+@media (max-width: 768px) { 
+  .ba-container { height: 300px; } 
+}
+
+@media (max-width: 480px) { 
+  .ba-container { height: 200px; } 
+  
+  .ba-badge {
+    top: 12px;
+    padding: 5px 12px;
+    font-size: 0.65rem;
+  }
+  
+  .ba-handle-btn {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .ba-instruction {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .ba-container { height: 160px; }
+  
+  .ba-badge {
+    padding: 4px 10px;
+    font-size: 0.6rem;
+  }
+}

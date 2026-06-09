@@ -156,3 +156,30 @@
   .navbar__drawer    { display: flex; }
   .navbar__inner { gap: 0; }
 }
+
+
+@media (max-width: 480px) {
+  .navbar__inner { 
+    height: 64px; 
+    padding: 0 16px;
+  }
+  
+  .navbar__logo-text {
+    font-size: 1.2rem;
+  }
+  
+  .navbar__cta {
+    font-size: 0.8rem;
+    padding: 9px 16px;
+  }
+}
+
+@media (max-width: 360px) {
+  .navbar__inner {
+    height: 56px;
+  }
+  
+  .navbar__logo-text {
+    font-size: 1rem;
+  }
+}

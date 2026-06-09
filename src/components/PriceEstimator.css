@@ -407,3 +407,108 @@
 @media (max-width: 480px) {
   .estimator__group-row { grid-template-columns: 1fr; }
 }
+
+
+@media (max-width: 600px) {
+  .estimator__inputs {
+    padding: 28px 20px;
+  }
+
+  .estimator__amount {
+    font-size: 3.5rem;
+  }
+
+  .estimator__currency {
+    font-size: 1.2rem;
+  }
+
+  .estimator__display {
+    padding: 40px 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .estimator__card {
+    border-radius: var(--radius-lg);
+  }
+
+  .estimator__inputs {
+    padding: 24px 16px;
+    gap: 20px;
+  }
+
+  .estimator__label {
+    font-size: 0.8rem;
+    letter-spacing: 0.6px;
+  }
+
+  .estimator__toggle {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .estimator__toggle-btn {
+    font-size: 0.8rem;
+    padding: 8px;
+  }
+
+  .estimator__group-row {
+    grid-template-columns: 1fr;
+  }
+
+  .estimator__select,
+  .estimator__input {
+    font-size: 0.9rem;
+    padding: 10px 12px;
+  }
+
+  .estimator__display {
+    padding: 32px 16px;
+  }
+
+  .estimator__amount {
+    font-size: 2.5rem;
+  }
+
+  .estimator__currency {
+    font-size: 1rem;
+  }
+
+  .estimator__cents {
+    font-size: 1rem;
+  }
+
+  .estimator__disclaimer {
+    font-size: 0.65rem;
+    max-width: 180px;
+  }
+
+  .estimator__cta {
+    font-size: 0.85rem;
+    padding: 11px 16px;
+  }
+
+  .estimator__features-list {
+    gap: 10px;
+    padding: 20px 0;
+    margin: 24px 0;
+  }
+
+  .estimator__feature-item {
+    font-size: 0.85rem;
+    gap: 8px;
+  }
+
+  .estimator__checkbox p {
+    font-size: 0.75rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .estimator__amount {
+    font-size: 2rem;
+  }
+
+  .estimator__group-row {
+    grid-template-columns: 1fr;
+  }
+}

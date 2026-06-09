@@ -61,3 +61,37 @@
     aspect-ratio: 16/10;
   }
 }
+
+
+@media (max-width: 480px) {
+  .bac-container {
+    gap: 16px;
+  }
+
+  .bac-image-wrapper {
+    aspect-ratio: 16/12;
+    border-width: 2px;
+  }
+
+  .bac-badge {
+    top: 12px;
+    left: 12px;
+    padding: 6px 12px;
+    font-size: 0.65rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .bac-container {
+    gap: 12px;
+  }
+
+  .bac-image-wrapper {
+    aspect-ratio: 1/1;
+  }
+
+  .bac-badge {
+    padding: 5px 10px;
+    font-size: 0.6rem;
+  }
+}

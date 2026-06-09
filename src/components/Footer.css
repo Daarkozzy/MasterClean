@@ -193,3 +193,95 @@
     text-align: center;
   }
 }
+
+
+@media (max-width: 480px) {
+  .footer__container {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+
+  .footer__logo-name {
+    font-size: 1.1rem;
+  }
+
+  .footer__logo-sub {
+    font-size: 0.7rem;
+  }
+
+  .footer__brand-desc {
+    font-size: 0.8rem;
+    line-height: 1.5;
+  }
+
+  .footer__socials {
+    gap: 10px;
+  }
+
+  .footer__social-btn {
+    width: 36px;
+    height: 36px;
+  }
+
+  .footer__social-btn svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  .footer__nav-title {
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+    margin-bottom: 16px;
+  }
+
+  .footer__nav-list {
+    gap: 10px;
+  }
+
+  .footer__nav-list a {
+    font-size: 0.85rem;
+  }
+
+  .footer__contact-list {
+    gap: 12px;
+  }
+
+  .footer__contact-list li {
+    font-size: 0.8rem;
+  }
+
+  .footer__bottom-inner {
+    gap: 12px;
+  }
+
+  .footer__bottom p {
+    font-size: 0.75rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .footer__container {
+    gap: 20px;
+    padding-top: 32px;
+    padding-bottom: 32px;
+  }
+
+  .footer__logo-name {
+    font-size: 1rem;
+  }
+
+  .footer__brand-desc {
+    font-size: 0.75rem;
+  }
+
+  .footer__nav-title,
+  .footer__nav-list a {
+    font-size: 0.75rem;
+  }
+
+  .footer__contact-list li {
+    font-size: 0.75rem;
+  }
+}

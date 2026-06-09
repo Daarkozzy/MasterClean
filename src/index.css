@@ -127,6 +127,12 @@ img { max-width: 100%; display: block; }
 
 @media (max-width: 768px) {
   .section-padding { padding: 72px 0; }
+  .container { padding: 0 20px; }
+}
+
+@media (max-width: 480px) {
+  .container { padding: 0 16px; }
+  .section-padding { padding: 56px 0; }
 }
 
 /* ─────────────────────────────────────────
@@ -187,6 +193,13 @@ img { max-width: 100%; display: block; }
   .section-subtitle { font-size: 1rem; }
 }
 
+@media (max-width: 480px) {
+  .section-eyebrow { font-size: 0.7rem; padding: 3px 12px; }
+  .section-title { font-size: 1.5rem; margin-bottom: 12px; }
+  .section-subtitle { font-size: 0.9rem; }
+  .section-title-underline { width: 40px; height: 3px; margin: 8px auto 0; }
+}
+
 /* ─────────────────────────────────────────
    CARDS (Beresin style — clean white cards)
 ───────────────────────────────────────── */
@@ -235,6 +248,14 @@ img { max-width: 100%; display: block; }
 
 .btn-primary:active { transform: translateY(0); }
 
+@media (max-width: 480px) {
+  .btn-primary {
+    padding: 11px 20px;
+    font-size: 0.85rem;
+    gap: 6px;
+  }
+}
+
 .btn-gold {
   display: inline-flex;
   align-items: center;
@@ -257,6 +278,14 @@ img { max-width: 100%; display: block; }
   transform: translateY(-2px);
   box-shadow: var(--shadow-lg);
   opacity: 0.95;
+}
+
+@media (max-width: 480px) {
+  .btn-gold {
+    padding: 11px 20px;
+    font-size: 0.85rem;
+    gap: 6px;
+  }
 }
 
 .btn-outline {

@@ -154,3 +154,58 @@
     grid-template-columns: 1fr;
   }
 }
+
+
+@media (max-width: 480px) {
+  .services__tabs {
+    gap: 10px;
+    margin-bottom: 32px;
+  }
+
+  .services__tab-trigger {
+    padding: 10px 16px;
+    font-size: 0.85rem;
+    gap: 8px;
+  }
+
+  .services__tab-trigger svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .services__detail-title {
+    font-size: 1.6rem;
+  }
+
+  .services__detail-desc {
+    font-size: 0.95rem;
+    margin-bottom: 28px;
+  }
+
+  .services__checklist-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    margin-bottom: 32px;
+  }
+
+  .services__checklist-item {
+    font-size: 0.9rem;
+    gap: 10px;
+  }
+
+  .services__visual-image {
+    width: 200px;
+    height: 200px;
+  }
+}
+
+@media (max-width: 360px) {
+  .services__tab-trigger {
+    padding: 8px 12px;
+    font-size: 0.75rem;
+  }
+
+  .services__detail-title {
+    font-size: 1.3rem;
+  }
+}

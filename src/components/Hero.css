@@ -260,3 +260,30 @@
     display: none;
   }
 }
+
+
+@media (max-width: 380px) {
+  .hero {
+    padding: 120px 0 80px;
+    min-height: auto;
+  }
+  
+  .hero__title {
+    font-size: 1.6rem;
+    margin-bottom: 16px;
+  }
+  
+  .hero__description {
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+  }
+  
+  .hero__actions {
+    margin-bottom: 20px;
+  }
+  
+  .hero__image {
+    width: 160%;
+    margin-left: -240px;
+  }
+}

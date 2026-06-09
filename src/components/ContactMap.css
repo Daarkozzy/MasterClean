@@ -235,3 +235,60 @@ a.contact-info-item--blue:hover .contact-info-item__icon {
 @media (max-width: 600px) {
   .contact__form-wrapper { padding: 28px 20px; }
 }
+
+
+@media (max-width: 480px) {
+  .contact__form-wrapper {
+    padding: 24px 16px;
+  }
+
+  .contact__form-wrapper h3 {
+    font-size: 1.3rem;
+    margin-bottom: 20px;
+  }
+
+  .contact__form {
+    gap: 14px;
+  }
+
+  .contact__input,
+  .contact__textarea {
+    padding: 12px 14px;
+    font-size: 0.9rem;
+  }
+
+  .contact__textarea {
+    padding-bottom: 36px;
+  }
+
+  .contact__error-text {
+    font-size: 0.75rem;
+    padding: 4px 10px 0;
+  }
+
+  .contact__submit {
+    font-size: 0.9rem;
+    padding: 11px 14px;
+  }
+
+  .contact__char-count {
+    font-size: 0.7rem;
+    bottom: 10px;
+    right: 10px;
+  }
+}
+
+@media (max-width: 360px) {
+  .contact__form-wrapper {
+    padding: 20px 12px;
+  }
+
+  .contact__form-wrapper h3 {
+    font-size: 1.1rem;
+  }
+
+  .contact__input,
+  .contact__textarea {
+    font-size: 0.85rem;
+  }
+}

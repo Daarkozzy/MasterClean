@@ -248,11 +248,16 @@ img { max-width: 100%; display: block; }
 
 .btn-primary:active { transform: translateY(0); }
 
-@media (max-width: 480px) {
+@media (max-width: 500px) {
   .btn-primary {
-    padding: 11px 20px;
+    padding: 14px 18px;
     font-size: 0.85rem;
     gap: 6px;
+  }
+  
+  .btn-outline-white {
+    padding: 13px 18px;
+    font-size: 0.85rem;
   }
 }
 
@@ -313,10 +318,11 @@ img { max-width: 100%; display: block; }
 .btn-outline-white {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 10px;
   background: transparent;
   color: var(--white);
-  padding: 13px 28px;
+  padding: 15px 32px;
   font-size: 1rem;
   font-weight: 700;
   border: 2px solid rgba(255,255,255,0.45);

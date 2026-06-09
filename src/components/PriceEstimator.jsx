@@ -9,6 +9,8 @@ const PRICES = {
   tapeteM2: 25,
   poltrona: 80,
   vehicle: { small: 220, medium: 280, large: 350 },
+  onibus: { base: 500 },
+  nauticos: { base: 400 },
   plastic: 50,
 };
 
@@ -21,6 +23,8 @@ export default function PriceEstimator() {
   const [poltronas, setPoltronas]         = useState(1);
   const [vehicleType, setVehicleType]     = useState('medium');
   const [withPlastic, setWithPlastic]     = useState(true);
+  const [onibusType, setOnibusType]       = useState('medio');
+  const [nauticoType, setNauticoType]     = useState('pequeno');
   const [total, setTotal]                 = useState(0);
 
   useEffect(() => {
@@ -31,12 +35,16 @@ export default function PriceEstimator() {
       p += carpeteSize * PRICES.carpeteM2;
       p += tapeteSize * PRICES.tapeteM2;
       p += poltronas * PRICES.poltrona;
-    } else {
+    } else if (category === 'veiculos') {
       p += PRICES.vehicle[vehicleType];
       if (withPlastic) p += PRICES.plastic;
+    } else if (category === 'onibus') {
+      p += PRICES.onibus.base;
+    } else if (category === 'nauticos') {
+      p += PRICES.nauticos.base;
     }
     setTotal(p);
-  }, [category, sofaSeats, colchaoType, carpeteSize, tapeteSize, poltronas, vehicleType, withPlastic]);
+  }, [category, sofaSeats, colchaoType, carpeteSize, tapeteSize, poltronas, vehicleType, withPlastic, onibusType, nauticoType]);
 
   const sendWhatsApp = () => {
     let msg = 'Olá MasterClean! Simulei um orçamento:\n\n';
@@ -48,11 +56,17 @@ export default function PriceEstimator() {
       if (carpeteSize > 0) msg += `- Carpete: ${carpeteSize}m²\n`;
       if (tapeteSize > 0) msg += `- Tapete: ${tapeteSize}m²\n`;
       if (poltronas > 0) msg += `- Poltronas: ${poltronas}x\n`;
-    } else {
+    } else if (category === 'veiculos') {
       const vLabels = { small: 'Pequeno (Hatch)', medium: 'Médio (Sedan/SUV)', large: 'Grande (SUV 7L/Van)' };
       msg += `*Tipo:* Higienização Veicular\n`;
       msg += `- Veículo: ${vLabels[vehicleType]}\n`;
       msg += `- Revitalização de plásticos: ${withPlastic ? 'Sim' : 'Não'}\n`;
+    } else if (category === 'onibus') {
+      msg += `*Tipo:* Higienização de Ônibus\n`;
+      msg += `- Tamanho: ${onibusType}\n`;
+    } else if (category === 'nauticos') {
+      msg += `*Tipo:* Higienização de Náuticos\n`;
+      msg += `- Tamanho: ${nauticoType}\n`;
     }
     msg += `\n*Estimativa:* R$ ${total},00\n\nGostaria de confirmar disponibilidade!`;
     window.open(`https://wa.me/5521992457714?text=${encodeURIComponent(msg)}`, '_blank');
@@ -71,6 +85,34 @@ export default function PriceEstimator() {
           </p>
         </div>
 
+        {/* Abas de serviço no mobile */}
+        <div className="estimator__tabs-container">
+          <button 
+            className={`estimator__tab-btn ${category === 'estofados' ? 'active' : ''}`}
+            onClick={() => setCategory('estofados')}
+          >
+            🛋️ Estofados
+          </button>
+          <button 
+            className={`estimator__tab-btn ${category === 'veiculos' ? 'active' : ''}`}
+            onClick={() => setCategory('veiculos')}
+          >
+            🚗 Veículos
+          </button>
+          <button 
+            className={`estimator__tab-btn ${category === 'onibus' ? 'active' : ''}`}
+            onClick={() => setCategory('onibus')}
+          >
+            🚌 Ônibus
+          </button>
+          <button 
+            className={`estimator__tab-btn ${category === 'nauticos' ? 'active' : ''}`}
+            onClick={() => setCategory('nauticos')}
+          >
+            ⛵ Náuticos
+          </button>
+        </div>
+
         <div className="estimator__card card">
 
           {/* ── Inputs Column ── */}
@@ -79,7 +121,7 @@ export default function PriceEstimator() {
             {/* Category toggle */}
             <div className="estimator__group">
               <label className="estimator__label">Tipo de Serviço</label>
-              <div className="estimator__toggle">
+              <div className="estimator__toggle" style={{ gridTemplateColumns: '1fr 1fr' }}>
                 {['estofados','veiculos'].map(c => (
                   <button
                     key={c}
@@ -144,7 +186,7 @@ export default function PriceEstimator() {
                   </div>
                 </div>
               </>
-            ) : (
+            ) : category === 'veiculos' ? (
               <>
                 <div className="estimator__group">
                   <label className="estimator__label">Porte do Veículo</label>
@@ -166,7 +208,36 @@ export default function PriceEstimator() {
                   </label>
                 </div>
               </>
-            )}
+            ) : category === 'onibus' ? (
+              <>
+                <div className="estimator__group">
+                  <label className="estimator__label">Tamanho do Ônibus</label>
+                  <select value={onibusType} onChange={e => setOnibusType(e.target.value)} className="estimator__select">
+                    <option value="pequeno">Pequeno (Micro-ônibus)</option>
+                    <option value="medio">Médio (Ônibus Padrão)</option>
+                    <option value="grande">Grande (Ônibus Duplo)</option>
+                  </select>
+                </div>
+                <p style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', marginTop: 8 }}>
+                  Higienização completa de bancos e interiores com equipe profissional.
+                </p>
+              </>
+            ) : category === 'nauticos' ? (
+              <>
+                <div className="estimator__group">
+                  <label className="estimator__label">Tamanho da Embarcação</label>
+                  <select value={nauticoType} onChange={e => setNauticoType(e.target.value)} className="estimator__select">
+                    <option value="pequeno">Pequeno (até 20 pés)</option>
+                    <option value="medio">Médio (20 a 30 pés)</option>
+                    <option value="grande">Grande (acima de 30 pés)</option>
+                  </select>
+                </div>
+                <p style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', marginTop: 8 }}>
+                  Higienização de poltronas, estofados e interiores náuticos com proteção especial.
+                </p>
+              </>
+            ) : null}
+
           </div>
 
           {/* ── Price Display Column ── */}

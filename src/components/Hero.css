@@ -64,11 +64,21 @@
   display: flex;
   gap: 20px;
   margin-bottom: 64px;
+  justify-content: center;
+  align-items: center;
 }
 
 .hero__cta-main {
-  padding: 16px 36px;
+  padding: 18px 40px;
   font-size: 1rem;
+}
+
+.btn-outline-white {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 16px 36px;
 }
 
 /* Stats Bar (Glassmorphism) */
@@ -219,17 +229,21 @@
   }
   
   .hero__actions {
-    flex-direction: column;
-    width: fit-content;
-    gap: 8px;
+    flex-direction: row;
+    width: auto;
+    gap: 10px;
     margin: 0 auto 30px;
+    justify-content: center;
   }
   
-  .hero__cta-main,
+  .hero__cta-main {
+    font-size: 0.9rem;
+    padding: 13px 18px;
+  }
+  
   .btn-outline-white {
-    font-size: 0.85rem;
-    padding: 6px 12px;
-    height: auto;
+    font-size: 0.9rem;
+    padding: 13px 18px;
   }
   
   .hero__stats-bar {
@@ -247,13 +261,6 @@
     margin-left: -220px;
     margin-right: auto;
     margin-top: 0;
-  }
-  
-  .hero__stats-bar {
-    flex-direction: column;
-    gap: 20px;
-    padding: 24px;
-    width: 100%;
   }
   
   .hero__stat-divider {

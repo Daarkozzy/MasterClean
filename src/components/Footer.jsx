@@ -1,4 +1,5 @@
 import React from 'react';
+import { WhatsappLogo } from '@phosphor-icons/react';
 import './Footer.css';
 
 const scrollTo = (id) => {
@@ -6,27 +7,13 @@ const scrollTo = (id) => {
   if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 80, behavior: 'smooth' });
 };
 
-const scrollToService = (serviceId) => {
-  // Primeiro, rola para a seção de serviços
-  const servicesEl = document.getElementById('services');
-  if (servicesEl) {
-    window.scrollTo({ top: servicesEl.getBoundingClientRect().top + window.scrollY - 80, behavior: 'smooth' });
-    
-    // Depois de um pequeno delay, clica na aba do serviço
-    setTimeout(() => {
-      const tabButton = servicesEl.querySelector(`button[data-tab="${serviceId}"]`);
-      if (tabButton) tabButton.click();
-    }, 500);
-  }
-};
-
 const navLinks = [
   { label: 'Quem Somos', id: 'home', type: 'scroll' },
   { label: 'Serviços', id: 'services', type: 'scroll' },
-  { label: 'Estofados', id: 'estofados', type: 'service' },
-  { label: 'Veículos', id: 'veiculos', type: 'service' },
-  { label: 'Ônibus', id: 'onibus', type: 'service' },
-  { label: 'Náuticos', id: 'nauticos', type: 'service' },
+  { label: 'Estofados', id: 'services', type: 'scroll' },
+  { label: 'Veículos', id: 'services', type: 'scroll' },
+  { label: 'Ônibus', id: 'services', type: 'scroll' },
+  { label: 'Náuticos', id: 'services', type: 'scroll' },
   { label: 'Antes & Depois', id: 'before-after', type: 'scroll' },
   { label: 'Simular Preço', id: 'price-estimator', type: 'scroll' },
 ];
@@ -45,7 +32,7 @@ const socials = [
   {
     label: 'WhatsApp',
     href: 'https://wa.me/5521992457714',
-    icon: <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>,
+    icon: <WhatsappLogo size={20} weight="fill" />,
   },
 ];
 
@@ -99,7 +86,7 @@ export default function Footer() {
           <span className="footer__nav-title">Contato</span>
           <ul className="footer__contact-list">
             <li>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.513 2.262 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.724-1.455L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436 0 9.86-4.37 9.864-9.799.002-2.63-1.023-5.101-2.885-6.966C16.59 1.988 14.113.96 11.487.96c-5.44 0-9.866 4.372-9.87 9.802 0 1.714.463 3.39 1.337 4.888L1.93 20.23l4.717-1.076zM17.72 14.51c-.34-.17-2.01-.99-2.32-1.1-.31-.11-.53-.17-.75.17-.22.34-.87 1.1-.1.17.65.65.65.17-.11.34.34-.17.68-.45.89-.66.22-.21.22-.34.33-.56.11-.22.06-.41-.03-.58-.09-.17-.75-1.8-1.03-2.48-.27-.66-.55-.57-.75-.58-.19-.01-.41-.01-.63-.01-.22 0-.58.08-.88.41-.3.33-1.15 1.13-1.15 2.75 0 1.62 1.18 3.19 1.35 3.42.17.22 2.33 3.56 5.65 4.99.79.34 1.4.54 1.88.7.8.25 1.52.22 2.1.13.64-.1 2.01-.82 2.29-1.58.28-.76.28-1.41.2-1.55-.08-.14-.3-.22-.64-.39z"/></svg>
+              <WhatsappLogo size={18} weight="fill" />
               (21) 99245-7714
             </li>
             <li>

@@ -1,11 +1,20 @@
-import React from 'react';
+import React, { lazy, Suspense } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Services from './components/Services';
-import PriceEstimator from './components/PriceEstimator';
-import ContactMap from './components/ContactMap';
-import Footer from './components/Footer';
-import BeforeAfterSlider from './components/BeforeAfterSlider';
+
+// Lazy load componentes abaixo da fold
+const PriceEstimator = lazy(() => import('./components/PriceEstimator'));
+const ContactMap = lazy(() => import('./components/ContactMap'));
+const Footer = lazy(() => import('./components/Footer'));
+const BeforeAfterSlider = lazy(() => import('./components/BeforeAfterSlider'));
+
+// Loading fallback simples
+const SectionLoader = () => (
+  <div style={{ padding: '80px 20px', textAlign: 'center', color: 'var(--text-muted)' }}>
+    Carregando...
+  </div>
+);
 
 function App() {
   return (
@@ -15,31 +24,41 @@ function App() {
         <Hero />
         <Services />
         
-        <section id="before-after" className="section-padding" style={{ background: 'var(--blue-900)', color: 'var(--white)', overflow: 'hidden' }}>
-          <div className="container" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '64px', alignItems: 'center' }}>
-            <div>
-              <span className="section-eyebrow" style={{ background: 'rgba(255,255,255,0.1)', color: 'var(--brand-gold)', borderColor: 'rgba(249,184,0,0.3)' }}>Resultados Reais</span>
-              <h2 className="section-title" style={{ color: 'var(--white)', marginBottom: '24px' }}>O Poder da <span className="gold">Higienização</span></h2>
-              <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: '1.15rem', marginBottom: '32px', lineHeight: '1.7' }}>
-                Veja a diferença brutal entre um estofado contaminado e um renovado pela nossa equipe. Mais do que estética, é saúde para seu lar.
-              </p>
-            </div>
-            <div style={{ position: 'relative' }}>
-              <div style={{ borderRadius: 'var(--radius-xl)', overflow: 'hidden', boxShadow: 'var(--shadow-xl)', border: '4px solid rgba(255,255,255,0.05)' }}>
-                <BeforeAfterSlider 
-                  beforeImage="/images/sujo.jpeg"
-                  afterImage="/images/limpo.jpeg"
-                  title="Deslize para comparar"
-                />
+        <Suspense fallback={<SectionLoader />}>
+          <section id="before-after" className="section-padding" style={{ background: 'var(--blue-900)', color: 'var(--white)', overflow: 'hidden' }}>
+            <div className="container" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '64px', alignItems: 'center' }}>
+              <div>
+                <span className="section-eyebrow" style={{ background: 'rgba(255,255,255,0.1)', color: 'var(--brand-gold)', borderColor: 'rgba(249,184,0,0.3)' }}>Resultados Reais</span>
+                <h2 className="section-title" style={{ color: 'var(--white)', marginBottom: '24px' }}>O Poder da <span className="gold">Higienização</span></h2>
+                <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: '1.15rem', marginBottom: '32px', lineHeight: '1.7' }}>
+                  Veja a diferença brutal entre um estofado contaminado e um renovado pela nossa equipe. Mais do que estética, é saúde para seu lar.
+                </p>
+              </div>
+              <div style={{ position: 'relative' }}>
+                <div style={{ borderRadius: 'var(--radius-xl)', overflow: 'hidden', boxShadow: 'var(--shadow-xl)', border: '4px solid rgba(255,255,255,0.05)' }}>
+                  <BeforeAfterSlider 
+                    beforeImage="/images/sujo.jpeg"
+                    afterImage="/images/limpo.jpeg"
+                    title="Deslize para comparar"
+                  />
+                </div>
               </div>
             </div>
-          </div>
-        </section>
+          </section>
+        </Suspense>
 
-        <PriceEstimator />
-        <ContactMap />
+        <Suspense fallback={<SectionLoader />}>
+          <PriceEstimator />
+        </Suspense>
+
+        <Suspense fallback={<SectionLoader />}>
+          <ContactMap />
+        </Suspense>
       </main>
-      <Footer />
+
+      <Suspense fallback={null}>
+        <Footer />
+      </Suspense>
     </div>
   );
 }

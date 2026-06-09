@@ -77,7 +77,11 @@
 ───────────────────────────────────────── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-html { scroll-behavior: smooth; }
+html { 
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
 
 body {
   font-family: var(--font-sans);
@@ -86,6 +90,8 @@ body {
   line-height: 1.65;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  contain: layout style paint;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -445,3 +451,61 @@ section:nth-child(1) { animation-delay: 0s; }
 section:nth-child(2) { animation-delay: 0.08s; }
 section:nth-child(3) { animation-delay: 0.16s; }
 section:nth-child(4) { animation-delay: 0.24s; }
+
+/* ─────────────────────────────────────────
+   PERFORMANCE OPTIMIZATIONS
+───────────────────────────────────────── */
+
+/* Otimizar animações com GPU acceleration */
+* {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+/* Otimizar elementos com animações */
+[class*="motion"],
+[class*="animate"],
+.card,
+button,
+a {
+  will-change: auto;
+  transform: translateZ(0);
+}
+
+button:hover,
+.btn-primary:hover,
+.btn-gold:hover {
+  will-change: transform, box-shadow;
+}
+
+/* Desabilitar animações em conexões lentas */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Otimizar images com lazy loading */
+img {
+  content-visibility: auto;
+}
+
+/* Melhorar performance de scrolling */
+main, section {
+  contain: layout style paint;
+}
+
+/* Suavizar transições em dispositivos móveis */
+@media (max-width: 768px) {
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+  
+  button {
+    -webkit-user-select: none;
+    user-select: none;
+  }
+}

@@ -8,4 +8,14 @@ export default defineConfig({
     port: 3000,
     strictPort: false,
   },
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks: (id) => {
+          if (id.includes('framer-motion')) return 'framer'
+          if (id.includes('@phosphor-icons')) return 'phosphor'
+        }
+      }
+    }
+  }
 })

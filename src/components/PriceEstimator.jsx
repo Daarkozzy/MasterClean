@@ -118,23 +118,6 @@ export default function PriceEstimator() {
           {/* ── Inputs Column ── */}
           <div className="estimator__inputs">
 
-            {/* Category toggle */}
-            <div className="estimator__group">
-              <label className="estimator__label">Tipo de Serviço</label>
-              <div className="estimator__toggle" style={{ gridTemplateColumns: '1fr 1fr' }}>
-                {['estofados','veiculos'].map(c => (
-                  <button
-                    key={c}
-                    type="button"
-                    className={`estimator__toggle-btn ${category === c ? 'estimator__toggle-btn--active' : ''}`}
-                    onClick={() => setCategory(c)}
-                  >
-                    {c === 'estofados' ? '🛋️ Estofados' : '🚗 Veículos'}
-                  </button>
-                ))}
-              </div>
-            </div>
-
             {category === 'estofados' ? (
               <>
                 {/* Sofá slider */}

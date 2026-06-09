@@ -22,7 +22,7 @@ const tabs = [
     description: 'Cuidado completo para o interior do seu veículo, com revitalização de plásticos e tecidos.',
     checklist: ['Bancos, teto e carpetes', 'Revitalização de plásticos', 'Couro hidratado e protegido'],
     waMsg: 'veicular',
-    image: '/images/carro.jpeg'
+    image: '/carro.svg'
   },
   {
     id: 'onibus',
@@ -31,7 +31,8 @@ const tabs = [
     title: 'Higienização Profissional de Bancos de Ônibus',
     description: 'Higienização profunda dos bancos com remoção de manchas, sujeiras e eliminação de odores desagradáveis para conforto máximo dos passageiros.',
     checklist: ['Higienização profunda dos bancos', 'Remoção de manchas e sujeiras', 'Eliminação de odores desagradáveis', 'Redução de ácaros e microrganismos', 'Secagem rápida', 'Atendimento no pátio da empresa', 'Horários flexíveis para não impactar a operação'],
-    waMsg: 'ônibus'
+    waMsg: 'ônibus',
+    image: '/onibus.svg'
   },
   {
     id: 'nauticos',
@@ -40,7 +41,8 @@ const tabs = [
     title: 'Higienização Profissional para Embarcações',
     description: 'Cuidamos de cada detalhe para proporcionar mais conforto, beleza e durabilidade para o interior de sua embarcação.',
     checklist: ['Higienização de poltronas', 'Higienização de carpetes e tapetes náuticos', 'Higienização de estofados gerais', 'Higienização de colchões náuticos', 'Higienização de estofados em geral'],
-    waMsg: 'náuticos'
+    waMsg: 'náuticos',
+    image: '/nautico.svg'
   }
 ];
 
@@ -110,10 +112,8 @@ export default function Services() {
             <div className="services__detail-visual">
               {/* Abstract decorative element for the visual side */}
               <div className="services__visual-blob" />
-              {current.image ? (
+              {current.image && (
                 <img src={current.image} alt={current.title} className="services__visual-image" />
-              ) : (
-                activeTab === 'estofados' ? <Armchair size={180} weight="duotone" className="services__visual-icon" /> : <Car size={180} weight="duotone" className="services__visual-icon" />
               )}
             </div>
           </motion.div>

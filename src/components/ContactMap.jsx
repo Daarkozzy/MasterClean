@@ -1,45 +1,6 @@
 import React, { useState } from 'react';
 import './ContactMap.css';
 
-const contactInfo = [
-  {
-    id: 'whatsapp',
-    href: 'https://wa.me/5521992457714',
-    label: '(21) 99245-7714',
-    sublabel: 'WhatsApp — clique para chamar',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="currentColor">
-        <path d="M12 2C6.48 2 2 6.48 2 12c0 2.54.95 4.87 2.5 6.6L2 22l5.74-1.57C9.29 21.73 10.61 22 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm5.25 11.25c-.26.65-.74 1.27-1.46 1.75-.72.48-1.67.72-2.84.72-1.68 0-3.26-.45-4.63-1.27l-.43-.26-3.2.84.84-3.2-.26-.43c-.82-1.37-1.27-2.95-1.27-4.63 0-1.17.24-2.12.72-2.84.48-.72 1.1-1.2 1.75-1.46.65-.26 1.37-.39 2.15-.39 1.68 0 3.26.45 4.63 1.27l.43.26 3.2-.84-.84 3.2.26.43c.82 1.37 1.27 2.95 1.27 4.63 0 .78-.13 1.5-.39 2.15z"/>
-      </svg>
-    ),
-    colorClass: 'contact-info-item--green',
-  },
-  {
-    id: 'whatsapp2',
-    href: 'https://wa.me/5521992457714',
-    label: 'Atendimento rápido',
-    sublabel: 'Resposta em minutos',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="currentColor">
-        <path d="M12 2C6.48 2 2 6.48 2 12c0 2.54.95 4.87 2.5 6.6L2 22l5.74-1.57C9.29 21.73 10.61 22 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm5.25 11.25c-.26.65-.74 1.27-1.46 1.75-.72.48-1.67.72-2.84.72-1.68 0-3.26-.45-4.63-1.27l-.43-.26-3.2.84.84-3.2-.26-.43c-.82-1.37-1.27-2.95-1.27-4.63 0-1.17.24-2.12.72-2.84.48-.72 1.1-1.2 1.75-1.46.65-.26 1.37-.39 2.15-.39 1.68 0 3.26.45 4.63 1.27l.43.26 3.2-.84-.84 3.2.26.43c.82 1.37 1.27 2.95 1.27 4.63 0 .78-.13 1.5-.39 2.15z"/>
-      </svg>
-    ),
-    colorClass: 'contact-info-item--green',
-  },
-  {
-    id: 'cnpj',
-    href: null,
-    label: 'CNPJ: 64.805.811/0001-42',
-    sublabel: 'Empresa registrada',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="currentColor">
-        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-8-6z"/>
-      </svg>
-    ),
-    colorClass: 'contact-info-item--gold',
-  },
-];
-
 export default function ContactMap() {
   const [form, setForm]   = useState({ nome: '', email: '', assunto: '', mensagem: '' });
   const [sent, setSent]   = useState(false);
@@ -120,10 +81,8 @@ export default function ContactMap() {
           </p>
         </div>
 
-        {/* ── Top grid: form only ── */}
-        <div className="contact__grid" style={{ gridTemplateColumns: '1fr' }}>
-
-          {/* Form */}
+        {/* ── Formulário Centralizado ── */}
+        <div className="contact__form-container" style={{ maxWidth: '600px', margin: '0 auto', marginBottom: '40px' }}>
           <div className="contact__form-wrapper card">
             <h3>Envie uma mensagem</h3>
             {errors.submit && <div style={{ color: '#ff4757', marginBottom: '16px', fontSize: '0.9rem' }}>⚠ {errors.submit}</div>}

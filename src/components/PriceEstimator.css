@@ -528,28 +528,43 @@
   .estimator__card {
     grid-template-columns: 1fr;
     overflow: visible;
+    border-radius: var(--radius-lg);
   }
 
   .estimator__display {
     border-top: 1px solid rgba(255, 255, 255, 0.1);
     border-right: none;
-    padding: 40px 24px;
+    padding: 40px 32px;
+    order: 2;
   }
 
   .estimator__inputs {
     border-right: none;
-    padding: 32px 24px;
-    gap: 20px;
+    padding: 36px 32px;
+    gap: 24px;
+    order: 1;
   }
 
   .estimator__amount {
     font-size: 4rem;
   }
+
+  .estimator__tabs-container {
+    gap: 10px;
+    padding: 0 24px;
+    margin-bottom: 24px;
+  }
+
+  .estimator__tab-btn {
+    padding: 10px 16px;
+    font-size: 0.9rem;
+  }
 }
 
 @media (max-width: 600px) {
   .estimator__inputs {
-    padding: 28px 20px;
+    padding: 32px 28px;
+    gap: 22px;
   }
 
   .estimator__amount {
@@ -561,8 +576,12 @@
   }
 
   .estimator__display {
-    padding: 35px 20px;
+    padding: 36px 28px;
     min-height: auto;
+  }
+
+  .estimator__tabs-container {
+    padding: 0 20px;
   }
 }
 
@@ -574,181 +593,247 @@
   }
 
   .estimator__inputs {
-    padding: 18px 14px;
-    gap: 12px;
-  }
-
-  .estimator__seats-grid {
-    grid-template-columns: repeat(auto-fit, minmax(38px, 1fr));
-    gap: 6px;
-  }
-
-  .estimator__seat-btn {
-    width: 38px;
-    height: 38px;
-    font-size: 0.85rem;
-  }
-
-  .estimator__label {
-    font-size: 0.68rem;
-    letter-spacing: 0.3px;
-  }
-
-  .estimator__label-flex {
-    font-size: 0.68rem;
-    letter-spacing: 0.3px;
-  }
-
-  .estimator__value-chip {
-    font-size: 0.6rem;
-    padding: 2px 7px;
-  }
-
-  .estimator__toggle {
-    grid-template-columns: 1fr 1fr;
-    gap: 2px;
-    padding: 3px;
-  }
-
-  .estimator__toggle-btn {
-    font-size: 0.68rem;
-    padding: 5px;
+    padding: 28px 24px;
+    gap: 20px;
   }
 
   .estimator__group {
-    gap: 8px;
-  }
-
-  .estimator__group-row {
-    grid-template-columns: 1fr;
     gap: 10px;
   }
 
-  .estimator__select,
-  .estimator__input {
-    font-size: 0.8rem;
-    padding: 8px 9px;
-    max-width: 100px;
-  }
-
-  .estimator__range {
-    height: 5px;
-  }
-
-  .estimator__range-labels {
-    font-size: 0.6rem;
-  }
-
-  .estimator__counter {
-    width: auto;
-    max-width: 88px;
-  }
-
-  .estimator__counter button {
-    width: 28px;
-    height: 28px;
-    font-size: 0.8rem;
-  }
-
-  .estimator__counter span {
-    font-size: 0.8rem;
-    width: 32px;
-  }
-
-  .estimator__display {
-    padding: 20px 12px;
-    min-height: auto;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-  }
-
-  .estimator__receipt-header {
-    margin-bottom: 14px;
-    gap: 7px;
-  }
-
-  .estimator__receipt-line {
-    width: 28px;
-    height: 1.2px;
-  }
-
-  .estimator__amount {
-    font-size: 1.9rem;
-  }
-
-  .estimator__currency {
-    font-size: 0.75rem;
-    margin-top: 5px;
-    margin-right: 2px;
-  }
-
-  .estimator__cents {
-    font-size: 0.75rem;
-    margin-top: 5px;
-  }
-
-  .estimator__display-label {
-    font-size: 0.6rem;
-    letter-spacing: 0.7px;
-  }
-
-  .estimator__disclaimer {
-    font-size: 0.6rem;
-    max-width: 145px;
-    line-height: 1.25;
-  }
-
-  .estimator__cta {
-    font-size: 0.8rem;
-    padding: 9px 12px;
-    gap: 5px;
-  }
-
-  .estimator__features-list {
-    gap: 7px;
-    padding: 14px 0;
-    margin: 16px 0;
-  }
-
-  .estimator__feature-item {
-    font-size: 0.7rem;
-    gap: 5px;
-  }
-
-  .estimator__feature-item svg {
-    width: 11px;
-    height: 11px;
-    min-width: 11px;
-  }
-
+  /* Melhor layout mobile para checkboxes */
   .estimator__checkbox {
-    gap: 8px;
+    gap: 12px;
+    padding: 12px;
+    background: var(--gray-50);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--gray-100);
+    transition: var(--transition-fast);
   }
 
-  .estimator__checkbox strong {
-    font-size: 0.78rem;
-    margin-bottom: 0;
+  .estimator__checkbox input:checked ~ .estimator__checkmark {
+    background: var(--brand-blue);
+    border-color: var(--brand-blue);
   }
 
-  .estimator__checkbox p {
-    font-size: 0.65rem;
-    line-height: 1.15;
+  .estimator__checkbox:has(input:checked) {
+    background: var(--blue-50);
+    border-color: var(--blue-200);
   }
 
   .estimator__checkmark {
-    width: 15px;
-    height: 15px;
-    min-width: 15px;
-    margin-top: 1px;
+    width: 24px;
+    height: 24px;
+    min-width: 24px;
+  }
+
+  .estimator__checkbox strong {
+    font-size: 1rem;
+    margin-bottom: 2px;
+  }
+
+  .estimator__checkbox p {
+    font-size: 0.85rem;
+    line-height: 1.4;
+  }
+
+  /* Labels maiores e mais espaçados */
+  .estimator__label {
+    font-size: 0.85rem;
+    letter-spacing: 0.5px;
+    margin-bottom: 2px;
+  }
+
+  .estimator__label-flex {
+    font-size: 0.85rem;
+    letter-spacing: 0.5px;
+  }
+
+  .estimator__value-chip {
+    font-size: 0.75rem;
+    padding: 3px 10px;
+  }
+
+  /* Grid de assentos maior e mais fácil de tocar */
+  .estimator__seats-grid {
+    grid-template-columns: repeat(5, 1fr);
+    gap: 8px;
+    margin-top: 12px;
+  }
+
+  .estimator__seat-btn {
+    width: 100%;
+    height: 48px;
+    font-size: 1rem;
+    border-radius: var(--radius-md);
+    border-width: 2px;
+  }
+
+  /* Toggle maior */
+  .estimator__toggle {
+    grid-template-columns: 1fr 1fr;
+    gap: 4px;
+    padding: 4px;
+  }
+
+  .estimator__toggle-btn {
+    font-size: 0.85rem;
+    padding: 10px;
+    min-height: 44px;
+  }
+
+  /* Inputs e selects maiores */
+  .estimator__select,
+  .estimator__input {
+    font-size: 1rem;
+    padding: 14px 16px;
+    min-height: 48px;
+    max-width: 100%;
+  }
+
+  /* Counter maior */
+  .estimator__counter {
+    width: 100%;
+    max-width: 160px;
+    border-radius: var(--radius-md);
+  }
+
+  .estimator__counter button {
+    width: 48px;
+    height: 48px;
+    font-size: 1.3rem;
+  }
+
+  .estimator__counter span {
+    font-size: 1.2rem;
+    flex: 1;
+  }
+
+  /* Tabs scrollable melhor */
+  .estimator__tabs-container {
+    overflow-x: auto;
+    gap: 8px;
+    padding: 0 24px;
+    margin-bottom: 20px;
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+    flex-wrap: nowrap;
+    scrollbar-width: thin;
+  }
+
+  .estimator__tab-btn {
+    padding: 12px 18px;
+    border-radius: var(--radius-md);
+    font-size: 0.9rem;
+    white-space: nowrap;
+    flex-shrink: 0;
+    min-height: 44px;
+  }
+
+  /* Display section */
+  .estimator__display {
+    padding: 32px 24px;
+    min-height: auto;
+  }
+
+  .estimator__receipt-header {
+    margin-bottom: 20px;
+    gap: 8px;
+  }
+
+  .estimator__receipt-line {
+    width: 32px;
+    height: 2px;
+  }
+
+  .estimator__display-label {
+    font-size: 0.75rem;
+    letter-spacing: 1.5px;
+  }
+
+  .estimator__features-list {
+    gap: 10px;
+    padding: 20px 0;
+    margin: 20px 0;
+  }
+
+  .estimator__feature-item {
+    font-size: 0.85rem;
+    gap: 8px;
+  }
+
+  .estimator__feature-item svg {
+    width: 16px;
+    height: 16px;
+    min-width: 16px;
+  }
+
+  .estimator__disclaimer {
+    font-size: 0.8rem;
+    max-width: 100%;
+    line-height: 1.5;
+  }
+
+  .estimator__cta {
+    font-size: 1rem;
+    padding: 14px 20px;
+    gap: 8px;
+    width: 100%;
+    min-height: 52px;
+  }
+
+  .estimator__cta svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  /* Range input melhor no mobile */
+  .estimator__range {
+    height: 8px;
+  }
+
+  .estimator__range::-webkit-slider-thumb {
+    width: 24px;
+    height: 24px;
+  }
+
+  .estimator__range-labels {
+    font-size: 0.75rem;
+    margin-top: 4px;
   }
 }
 
 @media (max-width: 360px) {
-  .estimator__amount {
-    font-size: 2rem;
+  .estimator__inputs {
+    padding: 24px 20px;
+    gap: 18px;
+  }
+
+  .estimator__display {
+    padding: 28px 20px;
+  }
+
+  .estimator__seats-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 6px;
+  }
+
+  .estimator__seat-btn {
+    height: 44px;
+    font-size: 0.95rem;
   }
 
   .estimator__group-row {
     grid-template-columns: 1fr;
+  }
+
+  .estimator__tabs-container {
+    padding: 0 20px;
+  }
+
+  .estimator__tab-btn {
+    padding: 10px 14px;
+    font-size: 0.85rem;
   }
 }
 

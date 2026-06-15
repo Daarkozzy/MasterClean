@@ -16,6 +16,7 @@ const navLinks = [
   { label: 'Náuticos', id: 'services', type: 'scroll' },
   { label: 'Antes & Depois', id: 'before-after', type: 'scroll' },
   { label: 'Simular Preço', id: 'price-estimator', type: 'scroll' },
+  { label: 'Trabalhe Conosco', href: 'mailto:mastercleanwork01@gmail.com', type: 'email' },
 ];
 
 const socials = [
@@ -73,9 +74,15 @@ export default function Footer() {
           <ul className="footer__nav-list">
             {navLinks.map(l => (
               <li key={l.label}>
-                <a href={`#${l.id}`} onClick={e => { e.preventDefault(); scrollTo(l.id); }}>
-                  {l.label}
-                </a>
+                {l.type === 'email' ? (
+                  <a href={l.href}>
+                    {l.label}
+                  </a>
+                ) : (
+                  <a href={`#${l.id}`} onClick={e => { e.preventDefault(); scrollTo(l.id); }}>
+                    {l.label}
+                  </a>
+                )}
               </li>
             ))}
           </ul>

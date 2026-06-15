@@ -1,0 +1,149 @@
+.reviews {
+  background: var(--white);
+  position: relative;
+}
+
+/* Carousel */
+.reviews__carousel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  margin-top: 52px;
+  position: relative;
+}
+
+.reviews__carousel-container {
+  flex: 1;
+  max-width: 200px;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  border: 2px solid var(--gray-100);
+}
+
+.reviews__carousel-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+}
+
+.reviews__arrow {
+  background: var(--brand-blue);
+  color: var(--white);
+  border: none;
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: var(--transition-fast);
+  box-shadow: var(--shadow-md);
+  flex-shrink: 0;
+}
+
+.reviews__arrow:hover {
+  background: var(--blue-700);
+  transform: scale(1.08);
+  box-shadow: var(--shadow-lg);
+}
+
+.reviews__arrow:active {
+  transform: scale(0.95);
+}
+
+/* Indicadores */
+.reviews__indicators {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 24px;
+}
+
+.reviews__indicator {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--gray-300);
+  border: none;
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+.reviews__indicator:hover {
+  background: var(--gray-400);
+}
+
+.reviews__indicator.active {
+  background: var(--brand-blue);
+  transform: scale(1.25);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .reviews__carousel {
+    gap: 16px;
+    margin-top: 32px;
+  }
+
+  .reviews__carousel-container {
+    max-width: 220px;
+  }
+
+  .reviews__arrow {
+    width: 48px;
+    height: 48px;
+  }
+
+  .reviews__arrow svg {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .reviews__carousel {
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 24px;
+  }
+
+  .reviews__carousel-container {
+    max-width: 180px;
+    order: 2;
+  }
+
+  .reviews__arrow {
+    width: 44px;
+    height: 44px;
+  }
+
+  .reviews__arrow--left {
+    order: 1;
+  }
+
+  .reviews__arrow--right {
+    order: 3;
+  }
+
+  .reviews__indicators {
+    margin-top: 16px;
+    gap: 8px;
+  }
+
+  .reviews__indicator {
+    width: 10px;
+    height: 10px;
+  }
+}
+
+@media (max-width: 380px) {
+  .reviews__carousel-container {
+    max-width: 160px;
+  }
+}
+
+

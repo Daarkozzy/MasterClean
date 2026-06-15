@@ -1,7 +1,12 @@
 import React, { lazy, Suspense } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
+import NauticHighlight from './components/NauticHighlight';
 import Services from './components/Services';
+import Diferenciais from './components/Diferenciais';
+import About from './components/About';
+import FAQ from './components/FAQ';
+import Reviews from './components/Reviews';
 
 // Lazy load componentes abaixo da fold
 const PriceEstimator = lazy(() => import('./components/PriceEstimator'));
@@ -22,7 +27,9 @@ function App() {
       <Navbar />
       <main id="main-content">
         <Hero />
+        <NauticHighlight />
         <Services />
+        <Diferenciais />
         
         <Suspense fallback={<SectionLoader />}>
           <section id="before-after" className="section-padding" style={{ background: 'var(--blue-900)', color: 'var(--white)', overflow: 'hidden' }}>
@@ -47,9 +54,14 @@ function App() {
           </section>
         </Suspense>
 
+        <Reviews />
+
         <Suspense fallback={<SectionLoader />}>
           <PriceEstimator />
         </Suspense>
+
+        <FAQ />
+        <About />
 
         <Suspense fallback={<SectionLoader />}>
           <ContactMap />

@@ -1,0 +1,129 @@
+.faq {
+  background: var(--white);
+}
+
+.faq__list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.faq__item {
+  border: 1.5px solid var(--gray-100);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: var(--transition-normal);
+}
+
+.faq__item:hover {
+  border-color: var(--brand-blue);
+  box-shadow: var(--shadow-sm);
+}
+
+.faq__item.active {
+  border-color: var(--brand-blue);
+  box-shadow: var(--shadow-md);
+}
+
+.faq__question {
+  width: 100%;
+  padding: 20px 24px;
+  background: var(--white);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  text-align: left;
+  transition: var(--transition-fast);
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.faq__question:hover {
+  background: var(--gray-50);
+}
+
+.faq__item.active .faq__question {
+  background: var(--blue-50);
+  color: var(--brand-blue);
+}
+
+.faq__icon {
+  color: var(--brand-blue);
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+}
+
+.faq__item.active .faq__icon {
+  transform: rotate(180deg);
+}
+
+.faq__answer {
+  padding: 0 24px 20px;
+  background: var(--white);
+  animation: slideDown 0.3s ease-out;
+}
+
+.faq__answer p {
+  color: var(--text-secondary);
+  font-size: 1rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .faq__question {
+    padding: 16px 18px;
+    font-size: 0.95rem;
+  }
+
+  .faq__answer {
+    padding: 0 18px 16px;
+  }
+
+  .faq__answer p {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .faq__list {
+    gap: 12px;
+  }
+
+  .faq__question {
+    padding: 14px 14px;
+    font-size: 0.9rem;
+    gap: 12px;
+  }
+
+  .faq__icon {
+    width: 18px;
+    height: 18px;
+  }
+
+  .faq__answer {
+    padding: 0 14px 12px;
+  }
+
+  .faq__answer p {
+    font-size: 0.85rem;
+  }
+}

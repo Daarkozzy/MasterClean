@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Armchair, Car, Bus, Boat, WhatsappLogo, CheckCircle, ArrowRight } from '@phosphor-icons/react';
+import { Armchair, Car, Bus, Boat, WhatsappLogo, CheckCircle } from '@phosphor-icons/react';
 import './Services.css';
 
 const tabs = [
@@ -8,29 +8,29 @@ const tabs = [
     id: 'estofados',
     label: 'Estofados',
     icon: <Armchair size={24} weight="duotone" />,
-    title: 'Higienização Profunda de Estofados',
-    description: 'Removemos ácaros, fungos e bactérias de sofás, colchões, carpetes e tapetes com equipamentos profissionais.',
-    checklist: ['Eliminação de 99.9% de bactérias', 'Remoção de manchas e odores', 'Secagem rápida controlada', 'Aroma exclusivo MasterClean'],
-    waMsg: 'estofados',
+    title: 'Higienização de Sofás, Colchões, Poltronas e Tapetes',
+    description: 'Limpeza profissional completa de sofás, colchões, poltronas, tapetes e carpetes com equipamentos de alto desempenho.',
+    checklist: ['Sofás e poltronas', 'Colchões (solteiro, casal, king)', 'Tapetes e carpetes', 'Remoção de ácaros e bactérias', 'Eliminação de odores', 'Secagem rápida controlada'],
+    waMsg: 'estofados e sofás',
     image: '/images/estofado.jpeg'
   },
   {
     id: 'veiculos',
     label: 'Veículos',
     icon: <Car size={24} weight="duotone" />,
-    title: 'Higienização Automotiva Premium',
-    description: 'Cuidado completo para o interior do seu veículo, com revitalização de plásticos e tecidos.',
-    checklist: ['Bancos, teto e carpetes', 'Revitalização de plásticos', 'Couro hidratado e protegido'],
-    waMsg: 'veicular',
+    title: 'Limpeza de Estofados Automotivos',
+    description: 'Higienização completa do interior do seu veículo, com cuidado especial em bancos e estofados.',
+    checklist: ['Limpeza dos bancos e tecidos', 'Higiene dos tapetes internos', 'Remoção de odores', 'Revitalização de plásticos'],
+    waMsg: 'veículos',
     image: '/carro.svg'
   },
   {
     id: 'onibus',
     label: 'Ônibus',
     icon: <Bus size={24} weight="duotone" />,
-    title: 'Higienização Profissional de Bancos de Ônibus',
-    description: 'Higienização profunda dos bancos com remoção de manchas, sujeiras e eliminação de odores desagradáveis para conforto máximo dos passageiros.',
-    checklist: ['Higienização profunda dos bancos', 'Remoção de manchas e sujeiras', 'Eliminação de odores desagradáveis', 'Redução de ácaros e microrganismos', 'Secagem rápida', 'Atendimento no pátio da empresa', 'Horários flexíveis para não impactar a operação'],
+    title: 'Higienização de Ônibus',
+    description: 'Limpeza profissional completa de ônibus com técnicas especializadas para ambientes maiores.',
+    checklist: ['Higienização de bancos', 'Limpeza de interiores', 'Remoção de sujeira acumulada', 'Eliminação de odores'],
     waMsg: 'ônibus',
     image: '/onibus.svg'
   },
@@ -38,9 +38,9 @@ const tabs = [
     id: 'nauticos',
     label: 'Náuticos',
     icon: <Boat size={24} weight="duotone" />,
-    title: 'Higienização Profissional para Embarcações',
-    description: 'Cuidamos de cada detalhe para proporcionar mais conforto, beleza e durabilidade para o interior de sua embarcação.',
-    checklist: ['Higienização de poltronas', 'Higienização de carpetes e tapetes náuticos', 'Higienização de estofados gerais', 'Higienização de colchões náuticos', 'Higienização de estofados em geral'],
+    title: 'Higienização Náutica (Lanchas e Barcos)',
+    description: 'Cuidamos do interior de embarcações com técnicas especializadas e produtos específicos para ambiente marítimo.',
+    checklist: ['Higienização de poltronas náuticas', 'Limpeza de carpetes e tapetes', 'Higiene de estofados', 'Proteção contra maresia', 'Cuidado com acabamentos especiais'],
     waMsg: 'náuticos',
     image: '/nautico.svg'
   }

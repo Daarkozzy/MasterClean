@@ -91,7 +91,6 @@ body {
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  contain: layout style paint;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -491,11 +490,6 @@ button:hover,
 /* Otimizar images com lazy loading */
 img {
   content-visibility: auto;
-}
-
-/* Melhorar performance de scrolling */
-main, section {
-  contain: layout style paint;
 }
 
 /* Suavizar transições em dispositivos móveis */

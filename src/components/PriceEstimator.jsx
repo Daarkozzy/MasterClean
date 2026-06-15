@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { WhatsappLogo, SealCheck, Clock } from '@phosphor-icons/react';
+import { WhatsappLogo, SealCheck, Clock, Armchair, Car, Bus, Boat } from '@phosphor-icons/react';
 import './PriceEstimator.css';
 
 const PRICES = {
@@ -25,6 +25,7 @@ export default function PriceEstimator() {
   const [withPlastic, setWithPlastic]     = useState(true);
   const [onibusType, setOnibusType]       = useState('medio');
   const [nauticoType, setNauticoType]     = useState('pequeno');
+  const [withPetCleaning, setWithPetCleaning] = useState(false);
   const [total, setTotal]                 = useState(0);
 
   useEffect(() => {
@@ -68,7 +69,10 @@ export default function PriceEstimator() {
       msg += `*Tipo:* Higienização de Náuticos\n`;
       msg += `- Tamanho: ${nauticoType}\n`;
     }
-    msg += `\n*Estimativa:* R$ ${total},00\n\nGostaria de confirmar disponibilidade!`;
+    if (withPetCleaning) {
+      msg += `\n✓ *Limpeza Pet Adicional:* Sim\n`;
+    }
+    msg += `\nGostaria de receber um orçamento personalizado!`;
     window.open(`https://wa.me/5521992457714?text=${encodeURIComponent(msg)}`, '_blank');
   };
 
@@ -91,25 +95,29 @@ export default function PriceEstimator() {
             className={`estimator__tab-btn ${category === 'estofados' ? 'active' : ''}`}
             onClick={() => setCategory('estofados')}
           >
-            🛋️ Estofados
+            <Armchair size={18} weight="fill" />
+            Estofados
           </button>
           <button 
             className={`estimator__tab-btn ${category === 'veiculos' ? 'active' : ''}`}
             onClick={() => setCategory('veiculos')}
           >
-            🚗 Veículos
+            <Car size={18} weight="fill" />
+            Veículos
           </button>
           <button 
             className={`estimator__tab-btn ${category === 'onibus' ? 'active' : ''}`}
             onClick={() => setCategory('onibus')}
           >
-            🚌 Ônibus
+            <Bus size={18} weight="fill" />
+            Ônibus
           </button>
           <button 
             className={`estimator__tab-btn ${category === 'nauticos' ? 'active' : ''}`}
             onClick={() => setCategory('nauticos')}
           >
-            ⛵ Náuticos
+            <Boat size={18} weight="fill" />
+            Náuticos
           </button>
         </div>
 
@@ -122,51 +130,95 @@ export default function PriceEstimator() {
               <>
                 {/* Sofá slider */}
                 <div className="estimator__group">
-                  <label className="estimator__label-flex">
-                    <span>Sofá (lugares)</span>
-                    <span className="estimator__value-chip">{sofaSeats} assentos</span>
+                  <label className="estimator__checkbox">
+                    <input type="checkbox" checked={sofaSeats > 0} onChange={e => setSofaSeats(e.target.checked ? 3 : 0)} />
+                    <span className="estimator__checkmark" />
+                    <label className="estimator__label-flex" style={{ margin: 0 }}>
+                      <span>Sofá (lugares)</span>
+                      <span className="estimator__value-chip">{sofaSeats} assentos</span>
+                    </label>
                   </label>
-                  <input type="range" min="0" max="10" value={sofaSeats}
-                    onChange={e => setSofaSeats(+e.target.value)}
-                    className="estimator__range" />
-                  <div className="estimator__range-labels"><span>0</span><span>5</span><span>10</span></div>
+                  {sofaSeats > 0 && (
+                    <div className="estimator__seats-grid">
+                      {Array.from({ length: 11 }, (_, i) => i + 2).map(num => (
+                        <button
+                          key={num}
+                          type="button"
+                          className={`estimator__seat-btn ${sofaSeats === num ? 'active' : ''}`}
+                          onClick={() => setSofaSeats(num)}
+                        >
+                          {num}
+                        </button>
+                      ))}
+                    </div>
+                  )}
                 </div>
 
                 {/* Colchão */}
                 <div className="estimator__group">
-                  <label className="estimator__label">Colchão</label>
-                  <select value={colchaoType} onChange={e => setColchaoType(e.target.value)} className="estimator__select">
-                    <option value="none">Sem colchão</option>
-                    <option value="single">Solteiro</option>
-                    <option value="double">Casal</option>
-                    <option value="king">King / Queen</option>
-                  </select>
+                  <label className="estimator__checkbox">
+                    <input type="checkbox" checked={colchaoType !== 'none'} onChange={e => setColchaoType(e.target.checked ? 'double' : 'none')} />
+                    <span className="estimator__checkmark" />
+                    <div>
+                      <strong>Colchão</strong>
+                    </div>
+                  </label>
+                  {colchaoType !== 'none' && (
+                    <select value={colchaoType} onChange={e => setColchaoType(e.target.value)} className="estimator__select">
+                      <option value="single">Solteiro</option>
+                      <option value="double">Casal</option>
+                      <option value="king">King / Queen</option>
+                    </select>
+                  )}
                 </div>
 
                 {/* Poltronas counter */}
                 <div className="estimator__group">
-                  <label className="estimator__label">Poltronas</label>
-                  <div className="estimator__counter">
-                    <button type="button" onClick={() => setPoltronas(Math.max(0, poltronas - 1))}>−</button>
-                    <span>{poltronas}</span>
-                    <button type="button" onClick={() => setPoltronas(poltronas + 1)}>+</button>
-                  </div>
+                  <label className="estimator__checkbox">
+                    <input type="checkbox" checked={poltronas > 0} onChange={e => setPoltronas(e.target.checked ? 1 : 0)} />
+                    <span className="estimator__checkmark" />
+                    <div>
+                      <strong>Poltronas</strong>
+                    </div>
+                  </label>
+                  {poltronas > 0 && (
+                    <div className="estimator__counter">
+                      <button type="button" onClick={() => setPoltronas(Math.max(0, poltronas - 1))}>−</button>
+                      <span>{poltronas}</span>
+                      <button type="button" onClick={() => setPoltronas(poltronas + 1)}>+</button>
+                    </div>
+                  )}
                 </div>
 
                 {/* Carpete + Tapete */}
-                <div className="estimator__group-row">
-                  <div className="estimator__group">
-                    <label className="estimator__label">Carpete (m²)</label>
+                <div className="estimator__group">
+                  <label className="estimator__checkbox">
+                    <input type="checkbox" checked={carpeteSize > 0} onChange={e => setCarpeteSize(e.target.checked ? 10 : 0)} />
+                    <span className="estimator__checkmark" />
+                    <div>
+                      <strong>Carpete (m²)</strong>
+                    </div>
+                  </label>
+                  {carpeteSize > 0 && (
                     <input type="number" min="0" value={carpeteSize}
                       onChange={e => setCarpeteSize(Math.max(0, +e.target.value || 0))}
                       className="estimator__input" />
-                  </div>
-                  <div className="estimator__group">
-                    <label className="estimator__label">Tapete (m²)</label>
+                  )}
+                </div>
+
+                <div className="estimator__group">
+                  <label className="estimator__checkbox">
+                    <input type="checkbox" checked={tapeteSize > 0} onChange={e => setTapeteSize(e.target.checked ? 5 : 0)} />
+                    <span className="estimator__checkmark" />
+                    <div>
+                      <strong>Tapete (m²)</strong>
+                    </div>
+                  </label>
+                  {tapeteSize > 0 && (
                     <input type="number" min="0" value={tapeteSize}
                       onChange={e => setTapeteSize(Math.max(0, +e.target.value || 0))}
                       className="estimator__input" />
-                  </div>
+                  )}
                 </div>
               </>
             ) : category === 'veiculos' ? (
@@ -174,9 +226,9 @@ export default function PriceEstimator() {
                 <div className="estimator__group">
                   <label className="estimator__label">Porte do Veículo</label>
                   <select value={vehicleType} onChange={e => setVehicleType(e.target.value)} className="estimator__select">
-                    <option value="small">Pequeno — Hatch (HB20, Onix…)</option>
-                    <option value="medium">Médio — Sedan/SUV (Corolla, Compass…)</option>
-                    <option value="large">Grande — SUV 7L / Van / Caminhonete</option>
+                    <option value="small">Pequeno (Hatch)</option>
+                    <option value="medium">Médio (Sedan/SUV)</option>
+                    <option value="large">Grande (SUV/Van)</option>
                   </select>
                 </div>
 
@@ -186,7 +238,7 @@ export default function PriceEstimator() {
                     <span className="estimator__checkmark" />
                     <div>
                       <strong>Revitalização de Plásticos</strong>
-                      <p>Restaura cor e brilho dos plásticos internos (+R$ 50)</p>
+                      <p>Restaura cor e brilho dos plásticos internos</p>
                     </div>
                   </label>
                 </div>
@@ -221,23 +273,29 @@ export default function PriceEstimator() {
               </>
             ) : null}
 
+            {/* Serviço Adicional: Limpeza Pet */}
+            <div style={{ marginTop: '24px', paddingTop: '24px', borderTop: '1px solid var(--gray-100)' }}>
+              <label className="estimator__checkbox">
+                <input type="checkbox" checked={withPetCleaning} onChange={e => setWithPetCleaning(e.target.checked)} />
+                <span className="estimator__checkmark" />
+                <div>
+                  <strong>Limpeza Pet</strong>
+                  <p>Remove pelos, odores e bactérias deixadas por animais de estimação</p>
+                </div>
+              </label>
+            </div>
+
           </div>
 
           {/* ── Price Display Column ── */}
           <div className="estimator__display">
             <div className="estimator__display-inner">
               <div className="estimator__receipt-header">
-                <span className="estimator__display-label">Resumo do Orçamento</span>
+                <span className="estimator__display-label">Envie sua Simulação</span>
                 <div className="estimator__receipt-line" />
               </div>
 
-              <div className="estimator__price">
-                <span className="estimator__currency">R$</span>
-                <span className="estimator__amount">{total}</span>
-                <span className="estimator__cents">,00</span>
-              </div>
-
-              <div className="estimator__features-list">
+              <div className="estimator__features-list" style={{ marginBottom: '32px' }}>
                 <div className="estimator__feature-item">
                   <SealCheck size={18} weight="fill" /> 
                   <span>Produtos Biodegradáveis</span>
@@ -248,8 +306,8 @@ export default function PriceEstimator() {
                 </div>
               </div>
 
-              <p className="estimator__disclaimer">
-                *Preço sujeito a alteração após vistoria técnica no local.
+              <p className="estimator__disclaimer" style={{ marginBottom: '24px' }}>
+                Preencha os campos acima e envie pelo WhatsApp para receber um orçamento personalizado!
               </p>
 
               <button type="button" className="btn-gold estimator__cta" onClick={sendWhatsApp}>

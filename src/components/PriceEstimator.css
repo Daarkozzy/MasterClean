@@ -70,7 +70,7 @@
   }
 
   .estimator__tabs-container::-webkit-scrollbar-track {
-    background: rgba(255,255,255,0.1);
+    background: rgba(255, 255, 255, 0.1);
   }
 
   .estimator__tabs-container::-webkit-scrollbar-thumb {
@@ -248,7 +248,7 @@
 .estimator__seat-btn:hover {
   border-color: var(--brand-blue);
   color: var(--brand-blue);
-  box-shadow: 0 0 0 2px rgba(26,110,245,0.1);
+  box-shadow: 0 0 0 2px rgba(26, 110, 245, 0.1);
 }
 
 .estimator__seat-btn.active {
@@ -276,7 +276,7 @@
 
 .estimator__select:focus {
   border-color: var(--brand-blue);
-  box-shadow: 0 0 0 3px rgba(26,110,245,0.1);
+  box-shadow: 0 0 0 3px rgba(26, 110, 245, 0.1);
 }
 
 /* Number input */
@@ -294,7 +294,7 @@
 
 .estimator__input:focus {
   border-color: var(--brand-blue);
-  box-shadow: 0 0 0 3px rgba(26,110,245,0.1);
+  box-shadow: 0 0 0 3px rgba(26, 110, 245, 0.1);
 }
 
 /* Counter */
@@ -347,7 +347,8 @@
 .estimator__checkbox input {
   position: absolute;
   opacity: 0;
-  width: 0; height: 0;
+  width: 0;
+  height: 0;
 }
 
 .estimator__checkmark {
@@ -362,7 +363,7 @@
   position: relative;
 }
 
-.estimator__checkbox input:checked ~ .estimator__checkmark {
+.estimator__checkbox input:checked~.estimator__checkmark {
   background: var(--brand-blue);
   border-color: var(--brand-blue);
 }
@@ -371,14 +372,18 @@
   content: '';
   position: absolute;
   display: none;
-  left: 6px; top: 2px;
-  width: 6px; height: 11px;
+  left: 6px;
+  top: 2px;
+  width: 6px;
+  height: 11px;
   border: solid var(--white);
   border-width: 0 2.5px 2.5px 0;
   transform: rotate(45deg);
 }
 
-.estimator__checkbox input:checked ~ .estimator__checkmark::after { display: block; }
+.estimator__checkbox input:checked~.estimator__checkmark::after {
+  display: block;
+}
 
 .estimator__checkbox strong {
   display: block;
@@ -408,7 +413,7 @@
   content: '';
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at top right, rgba(249,184,0,0.1) 0%, transparent 70%);
+  background: radial-gradient(circle at top right, rgba(249, 184, 0, 0.1) 0%, transparent 70%);
   pointer-events: none;
 }
 
@@ -435,15 +440,15 @@
   width: 100%;
   margin: 32px 0;
   padding: 24px 0;
-  border-top: 1px dashed rgba(255,255,255,0.1);
-  border-bottom: 1px dashed rgba(255,255,255,0.1);
+  border-top: 1px dashed rgba(255, 255, 255, 0.1);
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
 }
 
 .estimator__feature-item {
   display: flex;
   align-items: center;
   gap: 10px;
-  color: rgba(255,255,255,0.8);
+  color: rgba(255, 255, 255, 0.8);
   font-size: 0.9rem;
   font-weight: 500;
 }
@@ -467,7 +472,7 @@
   font-weight: 700;
   letter-spacing: 2px;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.55);
+  color: rgba(255, 255, 255, 0.55);
 }
 
 .estimator__price {
@@ -492,20 +497,20 @@
   color: var(--white);
   line-height: 0.95;
   letter-spacing: -3px;
-  text-shadow: 0 4px 20px rgba(0,0,0,0.3);
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
 }
 
 .estimator__cents {
   font-family: var(--font-heading);
   font-size: 1.6rem;
   font-weight: 700;
-  color: rgba(255,255,255,0.5);
+  color: rgba(255, 255, 255, 0.5);
   margin-top: 10px;
 }
 
 .estimator__disclaimer {
   font-size: 0.72rem;
-  color: rgba(255,255,255,0.45);
+  color: rgba(255, 255, 255, 0.45);
   text-align: center;
   line-height: 1.5;
   max-width: 200px;
@@ -526,7 +531,7 @@
   }
 
   .estimator__display {
-    border-top: 1px solid rgba(255,255,255,0.1);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
     border-right: none;
     padding: 40px 24px;
   }
@@ -537,7 +542,9 @@
     gap: 20px;
   }
 
-  .estimator__amount { font-size: 4rem; }
+  .estimator__amount {
+    font-size: 4rem;
+  }
 }
 
 @media (max-width: 600px) {
@@ -651,7 +658,7 @@
   .estimator__display {
     padding: 20px 12px;
     min-height: auto;
-    border-top: 1px solid rgba(255,255,255,0.1);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
   }
 
   .estimator__receipt-header {

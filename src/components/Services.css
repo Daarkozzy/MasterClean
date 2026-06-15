@@ -109,15 +109,22 @@
 }
 
 @keyframes morph {
-  0%, 100% { border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%; }
-  50% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+
+  0%,
+  100% {
+    border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+  }
+
+  50% {
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  }
 }
 
 .services__visual-icon {
   position: relative;
   z-index: 1;
   color: var(--brand-blue);
-  filter: drop-shadow(0 10px 20px rgba(0,0,0,0.1));
+  filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.1));
 }
 
 .services__visual-image {
@@ -140,26 +147,49 @@
   .services__detail-card {
     grid-template-columns: 1fr;
   }
-  
+
   .services__detail-content {
     padding: 48px 32px;
   }
-  
+
   .services__detail-visual {
     height: 300px;
     order: -1;
   }
-  
+
   .services__checklist-grid {
     grid-template-columns: 1fr;
   }
 }
 
+@media (max-width: 640px) {
+  .services__detail-content {
+    padding: 36px 24px;
+  }
+
+  .services__detail-title {
+    font-size: 1.8rem;
+    margin-bottom: 16px;
+  }
+
+  .services__detail-desc {
+    font-size: 1rem;
+    margin-bottom: 32px;
+  }
+
+  .services__checklist-grid {
+    margin-bottom: 36px;
+  }
+
+  .services__detail-visual {
+    height: 260px;
+  }
+}
 
 @media (max-width: 480px) {
   .services__tabs {
-    gap: 10px;
-    margin-bottom: 32px;
+    gap: 8px;
+    margin-bottom: 28px;
   }
 
   .services__tab-trigger {
@@ -173,39 +203,76 @@
     height: 18px;
   }
 
+  .services__detail-content {
+    padding: 28px 20px;
+  }
+
   .services__detail-title {
-    font-size: 1.6rem;
+    font-size: 1.5rem;
+    margin-bottom: 14px;
   }
 
   .services__detail-desc {
-    font-size: 0.95rem;
-    margin-bottom: 28px;
+    font-size: 0.9rem;
+    margin-bottom: 24px;
   }
 
   .services__checklist-grid {
-    grid-template-columns: 1fr;
-    gap: 12px;
-    margin-bottom: 32px;
+    gap: 10px;
+    margin-bottom: 28px;
   }
 
   .services__checklist-item {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     gap: 10px;
   }
 
+  .check-badge {
+    width: 18px;
+    height: 18px;
+    min-width: 18px;
+  }
+
+  .services__detail-visual {
+    height: 220px;
+  }
+
   .services__visual-image {
-    width: 200px;
-    height: 200px;
+    width: 180px;
+    height: 180px;
+  }
+
+  .services__visual-blob {
+    width: 220px;
+    height: 220px;
   }
 }
 
 @media (max-width: 360px) {
   .services__tab-trigger {
     padding: 8px 12px;
-    font-size: 0.75rem;
+    font-size: 0.8rem;
+    gap: 6px;
+  }
+
+  .services__tab-trigger svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  .services__detail-content {
+    padding: 24px 16px;
   }
 
   .services__detail-title {
-    font-size: 1.3rem;
+    font-size: 1.35rem;
+  }
+
+  .services__detail-desc {
+    font-size: 0.85rem;
+  }
+
+  .services__checklist-item {
+    font-size: 0.8rem;
   }
 }

@@ -65,33 +65,35 @@
 
 @media (max-width: 480px) {
   .bac-container {
-    gap: 16px;
+    gap: 20px;
   }
 
   .bac-image-wrapper {
-    aspect-ratio: 16/12;
-    border-width: 2px;
+    aspect-ratio: 4/3;
+    border-width: 3px;
+    border-radius: var(--radius-lg);
   }
 
   .bac-badge {
-    top: 12px;
-    left: 12px;
-    padding: 6px 12px;
-    font-size: 0.65rem;
+    top: 14px;
+    left: 14px;
+    padding: 7px 14px;
+    font-size: 0.7rem;
+    letter-spacing: 0.8px;
   }
 }
 
 @media (max-width: 360px) {
   .bac-container {
-    gap: 12px;
+    gap: 16px;
   }
 
   .bac-image-wrapper {
-    aspect-ratio: 1/1;
+    aspect-ratio: 4/3;
   }
 
   .bac-badge {
-    padding: 5px 10px;
-    font-size: 0.6rem;
+    padding: 6px 12px;
+    font-size: 0.65rem;
   }
 }

@@ -90,40 +90,42 @@
 
 @media (max-width: 768px) {
   .faq__question {
-    padding: 16px 18px;
-    font-size: 0.95rem;
+    padding: 18px 20px;
+    font-size: 1rem;
   }
 
   .faq__answer {
-    padding: 0 18px 16px;
+    padding: 0 20px 18px;
   }
 
   .faq__answer p {
-    font-size: 0.9rem;
+    font-size: 0.95rem;
   }
 }
 
 @media (max-width: 480px) {
   .faq__list {
-    gap: 12px;
+    gap: 14px;
   }
 
   .faq__question {
-    padding: 14px 14px;
-    font-size: 0.9rem;
-    gap: 12px;
+    padding: 18px 18px;
+    font-size: 1.05rem;
+    gap: 14px;
+    min-height: 56px;
   }
 
   .faq__icon {
-    width: 18px;
-    height: 18px;
+    width: 22px;
+    height: 22px;
   }
 
   .faq__answer {
-    padding: 0 14px 12px;
+    padding: 0 18px 18px;
   }
 
   .faq__answer p {
-    font-size: 0.85rem;
+    font-size: 1rem;
+    line-height: 1.7;
   }
 }

@@ -165,21 +165,21 @@ img {
 
 @media (max-width: 768px) {
   .section-padding {
-    padding: 72px 0;
+    padding: 80px 0;
   }
 
   .container {
-    padding: 0 20px;
+    padding: 0 24px;
   }
 }
 
 @media (max-width: 480px) {
   .container {
-    padding: 0 16px;
+    padding: 0 24px;
   }
 
   .section-padding {
-    padding: 56px 0;
+    padding: 60px 0;
   }
 }
 
@@ -243,33 +243,41 @@ img {
 
 @media (max-width: 768px) {
   .section-title {
-    font-size: 1.9rem;
+    font-size: 2rem;
+    margin-bottom: 12px;
   }
 
   .section-subtitle {
-    font-size: 1rem;
+    font-size: 1.05rem;
+    line-height: 1.7;
+    margin-bottom: 48px;
   }
 }
 
 @media (max-width: 480px) {
   .section-eyebrow {
-    font-size: 0.7rem;
-    padding: 3px 12px;
-  }
-
-  .section-title {
-    font-size: 1.5rem;
+    font-size: 0.75rem;
+    padding: 5px 14px;
+    letter-spacing: 1.5px;
     margin-bottom: 12px;
   }
 
+  .section-title {
+    font-size: 1.8rem;
+    margin-bottom: 14px;
+    line-height: 1.25;
+  }
+
   .section-subtitle {
-    font-size: 0.9rem;
+    font-size: 1rem;
+    line-height: 1.7;
+    margin-bottom: 40px;
   }
 
   .section-title-underline {
-    width: 40px;
+    width: 44px;
     height: 3px;
-    margin: 8px auto 0;
+    margin: 10px auto 0;
   }
 }
 
@@ -323,19 +331,6 @@ img {
   transform: translateY(0);
 }
 
-@media (max-width: 500px) {
-  .btn-primary {
-    padding: 14px 18px;
-    font-size: 0.85rem;
-    gap: 6px;
-  }
-
-  .btn-outline-white {
-    padding: 13px 18px;
-    font-size: 0.85rem;
-  }
-}
-
 .btn-gold {
   display: inline-flex;
   align-items: center;
@@ -360,11 +355,25 @@ img {
   opacity: 0.95;
 }
 
-@media (max-width: 480px) {
+@media (max-width: 500px) {
+  .btn-primary {
+    padding: 14px 24px;
+    font-size: 0.95rem;
+    gap: 8px;
+    min-height: 48px;
+  }
+
+  .btn-outline-white {
+    padding: 14px 24px;
+    font-size: 0.95rem;
+    min-height: 48px;
+  }
+
   .btn-gold {
-    padding: 11px 20px;
-    font-size: 0.85rem;
-    gap: 6px;
+    padding: 13px 24px;
+    font-size: 0.95rem;
+    gap: 8px;
+    min-height: 48px;
   }
 }
 

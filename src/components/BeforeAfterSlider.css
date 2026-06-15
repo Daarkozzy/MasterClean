@@ -122,29 +122,40 @@
 }
 
 @media (max-width: 480px) { 
-  .ba-container { height: 200px; } 
+  .ba-container { height: 260px; } 
   
   .ba-badge {
-    top: 12px;
-    padding: 5px 12px;
-    font-size: 0.65rem;
+    top: 14px;
+    padding: 7px 14px;
+    font-size: 0.7rem;
+    letter-spacing: 0.8px;
+  }
+  
+  .ba-handle {
+    width: 4px;
   }
   
   .ba-handle-btn {
-    width: 40px;
-    height: 40px;
+    width: 46px;
+    height: 46px;
   }
   
   .ba-instruction {
-    font-size: 0.8rem;
+    font-size: 0.9rem;
+    margin-top: 16px;
   }
 }
 
 @media (max-width: 360px) {
-  .ba-container { height: 160px; }
+  .ba-container { height: 220px; }
   
   .ba-badge {
-    padding: 4px 10px;
-    font-size: 0.6rem;
+    padding: 6px 12px;
+    font-size: 0.65rem;
+  }
+  
+  .ba-handle-btn {
+    width: 42px;
+    height: 42px;
   }
 }

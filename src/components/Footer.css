@@ -198,7 +198,91 @@
 @media (max-width: 480px) {
   .footer__container {
     grid-template-columns: 1fr;
-    gap: 28px;
+    gap: 32px;
+    padding-top: 48px;
+    padding-bottom: 48px;
+  }
+
+  .footer__logo {
+    gap: 12px;
+    margin-bottom: 18px;
+  }
+
+  .footer__logo-img {
+    width: 48px;
+    height: 48px;
+  }
+
+  .footer__logo-name {
+    font-size: 1.2rem;
+  }
+
+  .footer__logo-sub {
+    font-size: 0.75rem;
+  }
+
+  .footer__brand-desc {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+
+  .footer__socials {
+    gap: 12px;
+  }
+
+  .footer__social-btn {
+    width: 44px;
+    height: 44px;
+  }
+
+  .footer__social-btn svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .footer__nav-title {
+    font-size: 0.8rem;
+    letter-spacing: 1.2px;
+    margin-bottom: 18px;
+  }
+
+  .footer__nav-list {
+    gap: 12px;
+  }
+
+  .footer__nav-list a {
+    font-size: 0.95rem;
+  }
+
+  .footer__contact-list {
+    gap: 14px;
+  }
+
+  .footer__contact-list li {
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+
+  .footer__contact-list svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .footer__bottom-inner {
+    gap: 14px;
+    padding-top: 28px;
+    padding-bottom: 28px;
+  }
+
+  .footer__bottom p {
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .footer__container {
+    gap: 24px;
     padding-top: 40px;
     padding-bottom: 40px;
   }
@@ -207,81 +291,19 @@
     font-size: 1.1rem;
   }
 
-  .footer__logo-sub {
-    font-size: 0.7rem;
-  }
-
   .footer__brand-desc {
-    font-size: 0.8rem;
-    line-height: 1.5;
-  }
-
-  .footer__socials {
-    gap: 10px;
-  }
-
-  .footer__social-btn {
-    width: 36px;
-    height: 36px;
-  }
-
-  .footer__social-btn svg {
-    width: 16px;
-    height: 16px;
+    font-size: 0.9rem;
   }
 
   .footer__nav-title {
     font-size: 0.75rem;
-    letter-spacing: 1px;
-    margin-bottom: 16px;
-  }
-
-  .footer__nav-list {
-    gap: 10px;
   }
 
   .footer__nav-list a {
+    font-size: 0.9rem;
+  }
+
+  .footer__contact-list li {
     font-size: 0.85rem;
-  }
-
-  .footer__contact-list {
-    gap: 12px;
-  }
-
-  .footer__contact-list li {
-    font-size: 0.8rem;
-  }
-
-  .footer__bottom-inner {
-    gap: 12px;
-  }
-
-  .footer__bottom p {
-    font-size: 0.75rem;
-  }
-}
-
-@media (max-width: 360px) {
-  .footer__container {
-    gap: 20px;
-    padding-top: 32px;
-    padding-bottom: 32px;
-  }
-
-  .footer__logo-name {
-    font-size: 1rem;
-  }
-
-  .footer__brand-desc {
-    font-size: 0.75rem;
-  }
-
-  .footer__nav-title,
-  .footer__nav-list a {
-    font-size: 0.75rem;
-  }
-
-  .footer__contact-list li {
-    font-size: 0.75rem;
   }
 }

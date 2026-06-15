@@ -119,61 +119,84 @@
     padding: 80px 0;
   }
 
+  .about__intro {
+    font-size: 1.2rem;
+  }
+
   .about__text-section p {
-    font-size: 0.95rem;
+    font-size: 1rem;
+    line-height: 1.7;
   }
 
   .about__section-box {
-    padding: 20px;
+    padding: 24px;
   }
 
   .about__section-box h3 {
-    font-size: 1rem;
+    font-size: 1.05rem;
+    margin-bottom: 10px;
+  }
+
+  .about__section-box p,
+  .about__section-box li {
+    font-size: 0.95rem;
   }
 
   .about__closing {
-    margin-top: 40px;
-    padding: 28px;
+    margin-top: 48px;
+    padding: 32px;
   }
 
   .about__closing p {
-    font-size: 1rem;
+    font-size: 1.05rem;
   }
 }
 
 @media (max-width: 480px) {
   .about {
-    padding: 56px 0;
+    padding: 60px 0;
   }
 
   .about__intro {
-    font-size: 1.1rem;
+    font-size: 1.15rem;
+    line-height: 1.5;
+  }
+
+  .about__text-section {
+    gap: 18px;
   }
 
   .about__text-section p {
-    font-size: 0.9rem;
-    line-height: 1.6;
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+
+  .about__values {
+    gap: 18px;
   }
 
   .about__section-box {
-    padding: 16px;
-    gap: 12px;
+    padding: 20px;
   }
 
   .about__section-box h3 {
-    font-size: 0.9rem;
+    font-size: 1rem;
+    margin-bottom: 10px;
   }
 
   .about__section-box p,
   .about__section-box li {
-    font-size: 0.85rem;
+    font-size: 0.95rem;
+    line-height: 1.65;
   }
 
   .about__closing {
-    padding: 20px;
+    margin-top: 40px;
+    padding: 28px 24px;
   }
 
   .about__closing p {
-    font-size: 0.9rem;
+    font-size: 1.05rem;
+    line-height: 1.7;
   }
 }

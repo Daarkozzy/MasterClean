@@ -1,59 +1,62 @@
 import React, { useState, useEffect } from 'react';
+import { CaretRight, CaretLeft } from '@phosphor-icons/react';
 import './ResultsCarousel.css';
 
 const results = [
   {
     id: 1,
-    before: '/results/result1-before.jpg',
-    after: '/results/result1-after.jpg',
-    title: 'Limpeza de Sofá',
+    image: '/results/sofapreto.jpg',
+    alt: 'Resultado 1 - Sofá Preto',
   },
   {
     id: 2,
-    before: '/results/result2-before.jpg',
-    after: '/results/result2-after.jpg',
-    title: 'Limpeza de Sofá',
+    image: '/results/sofabranco.jpg',
+    alt: 'Resultado 2 - Sofá Branco',
   },
   {
     id: 3,
-    before: '/results/result3-before.jpg',
-    after: '/results/result3-after.jpg',
-    title: 'Limpeza de Carpete',
+    image: '/results/sofabranco2.jpg',
+    alt: 'Resultado 3 - Sofá Branco 2',
   },
 ];
 
 export default function ResultsCarousel() {
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  // Auto-play a cada 8 segundos
+  // Auto-play a cada 5 segundos
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % results.length);
-    }, 8000);
+    }, 5000);
     return () => clearInterval(interval);
   }, []);
+
+  const goToPrevious = () => {
+    setCurrentIndex((prev) => (prev - 1 + results.length) % results.length);
+  };
+
+  const goToNext = () => {
+    setCurrentIndex((prev) => (prev + 1) % results.length);
+  };
 
   return (
     <div className="results-carousel">
       <div className="results-carousel__container">
         <div className="results-carousel__slide">
-          <div className="results-carousel__item">
-            <div className="results-carousel__before">
-              <img 
-                src={results[currentIndex].before} 
-                alt={`${results[currentIndex].title} - Antes`} 
-              />
-              <span className="results-carousel__badge results-carousel__badge--before">ANTES</span>
-            </div>
-            <div className="results-carousel__after">
-              <img 
-                src={results[currentIndex].after} 
-                alt={`${results[currentIndex].title} - Depois`} 
-              />
-              <span className="results-carousel__badge results-carousel__badge--after">DEPOIS</span>
-            </div>
-          </div>
+          <img 
+            src={results[currentIndex].image} 
+            alt={results[currentIndex].alt} 
+            className="results-carousel__image"
+          />
         </div>
+
+        <button className="results-carousel__arrow results-carousel__arrow--left" onClick={goToPrevious} aria-label="Anterior">
+          <CaretLeft size={24} weight="fill" />
+        </button>
+
+        <button className="results-carousel__arrow results-carousel__arrow--right" onClick={goToNext} aria-label="Próximo">
+          <CaretRight size={24} weight="fill" />
+        </button>
       </div>
 
       <div className="results-carousel__indicators">

@@ -22,7 +22,7 @@ export default function Navbar() {
   };
 
   const navLinks = [
-    { label: 'Home', id: 'home' },
+    { label: 'Início', id: 'home' },
     { label: 'Serviços', id: 'services' },
     { label: 'Antes & Depois', id: 'before-after' },
     { label: 'Contato', id: 'contact' },

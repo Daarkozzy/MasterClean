@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { WhatsappLogo, ArrowRight, SealCheck, Users, ShieldCheck } from '@phosphor-icons/react';
+import { WhatsappLogo, ArrowRight } from '@phosphor-icons/react';
 import './Hero.css';
 
 export default function Hero() {
@@ -56,33 +56,6 @@ export default function Hero() {
               Ver Serviços
               <ArrowRight size={18} weight="bold" />
             </button>
-          </motion.div>
-
-          {/* Stats Bar (Glassmorphic) */}
-          <motion.div className="hero__stats-bar" variants={itemVariants}>
-            <div className="hero__stat-item">
-              <Users size={24} className="hero__stat-icon" />
-              <div>
-                <span className="hero__stat-val">+2.000</span>
-                <span className="hero__stat-txt">Clientes</span>
-              </div>
-            </div>
-            <div className="hero__stat-divider" />
-            <div className="hero__stat-item">
-              <ShieldCheck size={24} className="hero__stat-icon" />
-              <div>
-                <span className="hero__stat-val">100%</span>
-                <span className="hero__stat-txt">Garantia</span>
-              </div>
-            </div>
-            <div className="hero__stat-divider" />
-            <div className="hero__stat-item">
-              <SealCheck size={24} className="hero__stat-icon" />
-              <div>
-                <span className="hero__stat-val">Premium</span>
-                <span className="hero__stat-txt">Qualidade</span>
-              </div>
-            </div>
           </motion.div>
         </motion.div>
 

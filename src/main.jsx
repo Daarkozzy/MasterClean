@@ -2,8 +2,16 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.jsx'
-import ErrorBoundary from './components/ErrorBoundary.jsx'
-import WhatsAppButton from './components/WhatsAppButton.jsx'
+import ErrorBoundary from './components/common/ErrorBoundary'
+import { initGoogleAnalytics } from './utils/analytics'
+import { injectSchemaMarkup, getOrganizationSchema, getLocalBusinessSchema } from './utils/seo'
+
+// Inicializar Google Analytics
+initGoogleAnalytics();
+
+// Injetar Schema.org para SEO
+injectSchemaMarkup(getOrganizationSchema());
+injectSchemaMarkup(getLocalBusinessSchema());
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -12,9 +20,3 @@ createRoot(document.getElementById('root')).render(
     </ErrorBoundary>
   </StrictMode>,
 )
-
-// Renderizar WhatsApp button em um portal separado para garantir que fica fixo
-createRoot(document.getElementById('whatsapp-portal')).render(
-  <WhatsAppButton />
-)
-

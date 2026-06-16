@@ -1,0 +1,57 @@
+/* ═══════════════════════════════════════════════════════════════
+   Componente Card - Genérico e Reutilizável
+   ═══════════════════════════════════════════════════════════════ */
+
+.card {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  backdrop-filter: blur(4px);
+}
+
+/* ── Variantes ── */
+
+/* Padrão (com sombra e borda) */
+.card--default {
+  background: var(--white);
+  border: 1px solid var(--gray-100);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.card--default:hover {
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+  border-color: var(--brand-blue);
+  transform: translateY(-4px);
+}
+
+/* Elevado (sombra acentuada) */
+.card--elevated {
+  background: var(--white);
+  border: none;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+}
+
+.card--elevated:hover {
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.15);
+  transform: translateY(-6px);
+}
+
+/* Minimalista (sem sombra) */
+.card--minimal {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(249, 184, 0, 0.03) 100%);
+  border: 1px solid rgba(249, 184, 0, 0.2);
+  box-shadow: none;
+}
+
+.card--minimal:hover {
+  border-color: var(--brand-gold);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 1) 0%, rgba(249, 184, 0, 0.06) 100%);
+}
+
+/* ── Responsivo ── */
+
+@media (max-width: 768px) {
+  .card {
+    border-radius: var(--radius-md);
+  }
+}

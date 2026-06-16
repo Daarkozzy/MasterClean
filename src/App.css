@@ -1,11 +1,11 @@
-/* Reset default Vite layout styles */
+/* Resetar estilos padrão do layout Vite */
 .app-wrapper {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
 }
 
-/* Accessibility: Skip to main content link */
+/* Acessibilidade: Link para pular para conteúdo principal */
 .skip-to-main {
   position: absolute;
   top: -9999px;

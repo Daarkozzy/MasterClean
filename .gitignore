@@ -7,12 +7,20 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
+# Dependencies
 node_modules
 dist
 dist-ssr
 *.local
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
 
-# Editor directories and files
+# Build
+build/
+*.tsbuildinfo
+
+# IDE & Editor
 .vscode/*
 !.vscode/extensions.json
 .idea
@@ -22,3 +30,41 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+*.swp
+*.swo
+*~
+.sublime-workspace
+.sublime-project
+*.iml
+
+# Environment
+.env
+.env.local
+.env.*.local
+.env.production.local
+
+# Testing & Coverage
+coverage/
+.nyc_output/
+*.lcov
+.vitest/
+
+# Cache
+.npm
+.eslintcache
+.eslintignore
+tmp/
+temp/
+cache/
+
+# OS
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+
+# AI Tools & IDE Extensions
+.kombai/
+.cursor/
+.continue/

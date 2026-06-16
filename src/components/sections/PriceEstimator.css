@@ -1,0 +1,840 @@
+.estimator {
+  background: var(--off-white);
+  position: relative;
+}
+
+.estimator__card {
+  display: grid;
+  grid-template-columns: 1.3fr 0.7fr;
+  gap: 0;
+  overflow: visible;
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0;
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--gray-100);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Abas scrolláveis no mobile */
+.estimator__tabs-container {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  padding: 0 20px;
+  margin-bottom: 28px;
+  flex-wrap: wrap;
+}
+
+.estimator__tab-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  border-radius: var(--radius-pill);
+  border: 1.5px solid var(--blue-100);
+  background: var(--white);
+  color: var(--gray-700);
+  font-size: 0.85rem;
+  font-weight: 600;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+.estimator__tab-btn:hover {
+  border-color: var(--brand-blue);
+  color: var(--brand-blue);
+}
+
+.estimator__tab-btn.active {
+  background: var(--brand-blue);
+  color: var(--white);
+  border-color: var(--brand-blue);
+}
+
+@media (max-width: 500px) {
+  .estimator__tabs-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    padding: 0 24px;
+    margin-bottom: 24px;
+    overflow: visible;
+  }
+
+  .estimator__tab-btn {
+    padding: 12px 16px;
+    border-radius: var(--radius-md);
+    font-size: 0.9rem;
+    white-space: nowrap;
+    flex-shrink: 0;
+    cursor: pointer;
+    transition: var(--transition-fast);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    min-height: 48px;
+  }
+
+  .estimator__tab-btn:hover {
+    border-color: var(--brand-blue);
+    color: var(--brand-blue);
+  }
+
+  .estimator__tab-btn.active {
+    background: var(--brand-blue);
+    color: var(--white);
+    border-color: var(--brand-blue);
+  }
+}
+
+/* ── Lado de Inputs ── */
+.estimator__inputs {
+  padding: 44px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  border-right: 1px solid var(--gray-100);
+  background: var(--white);
+}
+
+.estimator__group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.estimator__group-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.estimator__label {
+  font-family: var(--font-heading);
+  font-size: 0.88rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: var(--gray-700);
+}
+
+.estimator__label-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-heading);
+  font-size: 0.88rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: var(--gray-700);
+}
+
+.estimator__value-chip {
+  background: var(--blue-50);
+  color: var(--brand-blue);
+  border: 1px solid var(--blue-100);
+  font-size: 0.78rem;
+  font-weight: 700;
+  padding: 2px 10px;
+  border-radius: var(--radius-pill);
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+/* Alternar categoria */
+.estimator__toggle {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background: var(--gray-50);
+  border: 1px solid var(--gray-100);
+  border-radius: var(--radius-pill);
+  padding: 4px;
+  gap: 4px;
+}
+
+.estimator__toggle-btn {
+  background: transparent;
+  border: none;
+  color: var(--gray-500);
+  font-family: var(--font-heading);
+  font-size: 0.92rem;
+  font-weight: 700;
+  padding: 10px;
+  border-radius: var(--radius-pill);
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+.estimator__toggle-btn--active {
+  background: var(--brand-blue);
+  color: var(--white);
+  box-shadow: var(--shadow-blue);
+}
+
+/* Input de intervalo */
+.estimator__range {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 6px;
+  background: var(--gray-100);
+  border-radius: 3px;
+  outline: none;
+}
+
+.estimator__range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--brand-gold);
+  border: 2px solid var(--white);
+  cursor: pointer;
+  box-shadow: var(--shadow-gold);
+}
+
+.estimator__range-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+/* Grade de assentos */
+.estimator__seats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(44px, 1fr));
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.estimator__seat-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 2px solid var(--gray-300);
+  background: var(--white);
+  color: var(--gray-800);
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: var(--transition-fast);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.estimator__seat-btn:hover {
+  border-color: var(--brand-blue);
+  color: var(--brand-blue);
+  box-shadow: 0 0 0 2px rgba(26, 110, 245, 0.1);
+}
+
+.estimator__seat-btn.active {
+  background: var(--brand-blue);
+  border-color: var(--brand-blue);
+  color: var(--white);
+  box-shadow: var(--shadow-blue);
+}
+
+/* Seleção */
+.estimator__select {
+  background: var(--white);
+  border: 1px solid var(--gray-100);
+  border-radius: var(--radius-md);
+  color: var(--text-primary);
+  padding: 12px 16px;
+  font-size: 0.95rem;
+  outline: none;
+  cursor: pointer;
+  transition: var(--transition-fast);
+  max-width: 100%;
+  word-break: break-word;
+  white-space: normal;
+}
+
+.estimator__select:focus {
+  border-color: var(--brand-blue);
+  box-shadow: 0 0 0 3px rgba(26, 110, 245, 0.1);
+}
+
+/* Input numérico */
+.estimator__input {
+  background: var(--white);
+  border: 1px solid var(--gray-100);
+  border-radius: var(--radius-md);
+  color: var(--text-primary);
+  padding: 12px 16px;
+  font-size: 0.95rem;
+  outline: none;
+  transition: var(--transition-fast);
+  max-width: 200px;
+}
+
+.estimator__input:focus {
+  border-color: var(--brand-blue);
+  box-shadow: 0 0 0 3px rgba(26, 110, 245, 0.1);
+}
+
+/* Contador */
+.estimator__counter {
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  background: var(--white);
+  border: 1px solid var(--gray-100);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.estimator__counter button {
+  width: 40px;
+  height: 40px;
+  background: var(--gray-50);
+  border: none;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--gray-700);
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+.estimator__counter button:hover {
+  background: var(--blue-50);
+  color: var(--brand-blue);
+}
+
+.estimator__counter span {
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  font-weight: 700;
+  width: 48px;
+  text-align: center;
+  color: var(--text-primary);
+}
+
+/* Checkbox */
+.estimator__checkbox {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  cursor: pointer;
+  position: relative;
+  user-select: none;
+}
+
+.estimator__checkbox input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.estimator__checkmark {
+  width: 22px;
+  height: 22px;
+  min-width: 22px;
+  border: 1.5px solid var(--gray-200);
+  border-radius: 6px;
+  background: var(--white);
+  transition: var(--transition-fast);
+  margin-top: 2px;
+  position: relative;
+}
+
+.estimator__checkbox input:checked~.estimator__checkmark {
+  background: var(--brand-blue);
+  border-color: var(--brand-blue);
+}
+
+.estimator__checkmark::after {
+  content: '';
+  position: absolute;
+  display: none;
+  left: 6px;
+  top: 2px;
+  width: 6px;
+  height: 11px;
+  border: solid var(--white);
+  border-width: 0 2.5px 2.5px 0;
+  transform: rotate(45deg);
+}
+
+.estimator__checkbox input:checked~.estimator__checkmark::after {
+  display: block;
+}
+
+.estimator__checkbox strong {
+  display: block;
+  font-size: 0.95rem;
+  color: var(--text-primary);
+  margin-bottom: 2px;
+}
+
+.estimator__checkbox p {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  line-height: 1.4;
+}
+
+/* ── Lado de exibição de preço ── */
+.estimator__display {
+  background: linear-gradient(135deg, #0d1f38 0%, #1e3050 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 64px 48px;
+  position: relative;
+  overflow: hidden;
+}
+
+.estimator__display::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at top right, rgba(249, 184, 0, 0.1) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.estimator__receipt-header {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.estimator__receipt-line {
+  width: 40px;
+  height: 2px;
+  background: var(--brand-gold);
+  border-radius: 1px;
+}
+
+.estimator__features-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  margin: 32px 0;
+  padding: 24px 0;
+  border-top: 1px dashed rgba(255, 255, 255, 0.1);
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
+}
+
+.estimator__feature-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.estimator__feature-item svg {
+  color: var(--brand-gold);
+}
+
+.estimator__display-inner {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+}
+
+.estimator__display-label {
+  font-family: var(--font-heading);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.estimator__price {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.estimator__currency {
+  font-family: var(--font-heading);
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--brand-gold);
+  margin-top: 10px;
+  margin-right: 4px;
+}
+
+.estimator__amount {
+  font-family: var(--font-heading);
+  font-size: 5.5rem;
+  font-weight: 900;
+  color: var(--white);
+  line-height: 0.95;
+  letter-spacing: -3px;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.estimator__cents {
+  font-family: var(--font-heading);
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.5);
+  margin-top: 10px;
+}
+
+.estimator__disclaimer {
+  font-size: 0.72rem;
+  color: rgba(255, 255, 255, 0.45);
+  text-align: center;
+  line-height: 1.5;
+  max-width: 200px;
+}
+
+.estimator__cta {
+  width: 100%;
+  justify-content: center;
+  font-size: 0.9rem;
+  padding: 13px 20px;
+}
+
+/* ── Responsivo ── */
+@media (max-width: 768px) {
+  .estimator__card {
+    grid-template-columns: 1fr;
+    overflow: visible;
+    border-radius: var(--radius-lg);
+  }
+
+  .estimator__display {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-right: none;
+    padding: 40px 32px;
+    order: 2;
+  }
+
+  .estimator__inputs {
+    border-right: none;
+    padding: 36px 32px;
+    gap: 24px;
+    order: 1;
+  }
+
+  .estimator__amount {
+    font-size: 4rem;
+  }
+
+  .estimator__tabs-container {
+    gap: 10px;
+    padding: 0 24px;
+    margin-bottom: 24px;
+  }
+
+  .estimator__tab-btn {
+    padding: 10px 16px;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .estimator__inputs {
+    padding: 32px 28px;
+    gap: 22px;
+  }
+
+  .estimator__amount {
+    font-size: 3.5rem;
+  }
+
+  .estimator__currency {
+    font-size: 1.2rem;
+  }
+
+  .estimator__display {
+    padding: 36px 28px;
+    min-height: auto;
+  }
+
+  .estimator__tabs-container {
+    padding: 0 20px;
+  }
+}
+
+@media (max-width: 500px) {
+  .estimator__card {
+    border-radius: var(--radius-lg);
+    overflow: visible;
+    grid-template-columns: 1fr;
+  }
+
+  .estimator__inputs {
+    padding: 28px 24px;
+    gap: 20px;
+  }
+
+  .estimator__group {
+    gap: 10px;
+  }
+
+  .estimator__group {
+    gap: 10px;
+  }
+
+  /* Melhor layout móvel para checkboxes */
+  .estimator__checkbox {
+    gap: 12px;
+    padding: 12px;
+    background: var(--gray-50);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--gray-100);
+    transition: var(--transition-fast);
+  }
+
+  .estimator__checkbox input:checked ~ .estimator__checkmark {
+    background: var(--brand-blue);
+    border-color: var(--brand-blue);
+  }
+
+  .estimator__checkbox:has(input:checked) {
+    background: var(--blue-50);
+    border-color: var(--blue-200);
+  }
+
+  .estimator__checkmark {
+    width: 24px;
+    height: 24px;
+    min-width: 24px;
+  }
+
+  .estimator__checkbox strong {
+    font-size: 1rem;
+    margin-bottom: 2px;
+  }
+
+  .estimator__checkbox p {
+    font-size: 0.85rem;
+    line-height: 1.4;
+  }
+
+  /* Labels maiores e mais espaçados */
+  .estimator__label {
+    font-size: 0.85rem;
+    letter-spacing: 0.5px;
+    margin-bottom: 2px;
+  }
+
+  .estimator__label-flex {
+    font-size: 0.85rem;
+    letter-spacing: 0.5px;
+  }
+
+  .estimator__value-chip {
+    font-size: 0.75rem;
+    padding: 3px 10px;
+  }
+
+  /* Grade de assentos maior e mais fácil de tocar */
+  .estimator__seats-grid {
+    grid-template-columns: repeat(5, 1fr);
+    gap: 8px;
+    margin-top: 12px;
+  }
+
+  .estimator__seat-btn {
+    width: 100%;
+    height: 48px;
+    font-size: 1rem;
+    border-radius: var(--radius-md);
+    border-width: 2px;
+  }
+
+  /* Alternar maior */
+  .estimator__toggle {
+    grid-template-columns: 1fr 1fr;
+    gap: 4px;
+    padding: 4px;
+  }
+
+  .estimator__toggle-btn {
+    font-size: 0.85rem;
+    padding: 10px;
+    min-height: 44px;
+  }
+
+  /* Inputs e seleções maiores */
+  .estimator__select,
+  .estimator__input {
+    font-size: 1rem;
+    padding: 14px 16px;
+    min-height: 48px;
+    max-width: 100%;
+  }
+
+  /* Contador maior */
+  .estimator__counter {
+    width: 100%;
+    max-width: 160px;
+    border-radius: var(--radius-md);
+  }
+
+  .estimator__counter button {
+    width: 48px;
+    height: 48px;
+    font-size: 1.3rem;
+  }
+
+  .estimator__counter span {
+    font-size: 1.2rem;
+    flex: 1;
+  }
+
+  /* Abas scrolláveis melhor */
+  .estimator__tabs-container {
+    overflow-x: auto;
+    gap: 8px;
+    padding: 0 24px;
+    margin-bottom: 20px;
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+    flex-wrap: nowrap;
+    scrollbar-width: thin;
+  }
+
+  .estimator__tab-btn {
+    padding: 12px 18px;
+    border-radius: var(--radius-md);
+    font-size: 0.9rem;
+    white-space: nowrap;
+    flex-shrink: 0;
+    min-height: 44px;
+  }
+
+  /* Seção de exibição */
+  .estimator__display {
+    padding: 32px 24px;
+    min-height: auto;
+  }
+
+  .estimator__receipt-header {
+    margin-bottom: 20px;
+    gap: 8px;
+  }
+
+  .estimator__receipt-line {
+    width: 32px;
+    height: 2px;
+  }
+
+  .estimator__display-label {
+    font-size: 0.75rem;
+    letter-spacing: 1.5px;
+  }
+
+  .estimator__features-list {
+    gap: 10px;
+    padding: 20px 0;
+    margin: 20px 0;
+  }
+
+  .estimator__feature-item {
+    font-size: 0.85rem;
+    gap: 8px;
+  }
+
+  .estimator__feature-item svg {
+    width: 16px;
+    height: 16px;
+    min-width: 16px;
+  }
+
+  .estimator__disclaimer {
+    font-size: 0.8rem;
+    max-width: 100%;
+    line-height: 1.5;
+  }
+
+  .estimator__cta {
+    font-size: 1rem;
+    padding: 14px 20px;
+    gap: 8px;
+    width: 100%;
+    min-height: 52px;
+  }
+
+  .estimator__cta svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  /* Input de intervalo melhor no mobile */
+  .estimator__range {
+    height: 8px;
+  }
+
+  .estimator__range::-webkit-slider-thumb {
+    width: 24px;
+    height: 24px;
+  }
+
+  .estimator__range-labels {
+    font-size: 0.75rem;
+    margin-top: 4px;
+  }
+}
+
+@media (max-width: 360px) {
+  .estimator__inputs {
+    padding: 24px 20px;
+    gap: 18px;
+  }
+
+  .estimator__display {
+    padding: 28px 20px;
+  }
+
+  .estimator__seats-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 6px;
+  }
+
+  .estimator__seat-btn {
+    height: 44px;
+    font-size: 0.95rem;
+  }
+
+  .estimator__group-row {
+    grid-template-columns: 1fr;
+  }
+
+  .estimator__tabs-container {
+    padding: 0 20px;
+  }
+
+  .estimator__tab-btn {
+    padding: 10px 14px;
+    font-size: 0.85rem;
+  }
+}
+
+
+/* Reduzir padding do container no estimator mobile */
+.estimator .container {
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+@media (max-width: 480px) {
+  .estimator .container {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+}

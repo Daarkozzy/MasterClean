@@ -1,21 +1,20 @@
-import React, { lazy, Suspense } from 'react';
-import Navbar from './components/Navbar';
-import Hero from './components/Hero';
-import NauticHighlight from './components/NauticHighlight';
-import Services from './components/Services';
-import Diferenciais from './components/Diferenciais';
-import About from './components/About';
-import FAQ from './components/FAQ';
-import Reviews from './components/Reviews';
-import ResultsCarousel from './components/ResultsCarousel';
+import { lazy, Suspense } from 'react';
+import Navbar from './components/common/Navbar';
+import Hero from './components/sections/Hero';
+import NauticHighlight from './components/sections/NauticHighlight';
+import Services from './components/sections/Services';
+import Diferenciais from './components/sections/Diferenciais';
+import About from './components/sections/About';
+import FAQ from './components/sections/FAQ';
+import Reviews from './components/sections/Reviews';
+import ResultsCarousel from './components/sections/ResultsCarousel';
 
-// Lazy load componentes abaixo da fold
-const PriceEstimator = lazy(() => import('./components/PriceEstimator'));
-const ContactMap = lazy(() => import('./components/ContactMap'));
-const Footer = lazy(() => import('./components/Footer'));
-const BeforeAfterSlider = lazy(() => import('./components/BeforeAfterSlider'));
+// Carregamento lazy de componentes abaixo da dobra
+const PriceEstimator = lazy(() => import('./components/sections/PriceEstimator'));
+const ContactMap = lazy(() => import('./components/sections/ContactMap'));
+const Footer = lazy(() => import('./components/common/Footer'));
 
-// Loading fallback simples
+// Fallback de carregamento simples
 const SectionLoader = () => (
   <div style={{ padding: '80px 20px', textAlign: 'center', color: 'var(--text-muted)' }}>
     Carregando...
@@ -27,9 +26,9 @@ function App() {
     <div className="app-wrapper">
       <Navbar />
       <main id="main-content">
-        <Hero />
+        <section id="home"><Hero /></section>
         <NauticHighlight />
-        <Services />
+        <section id="services"><Services /></section>
         <Diferenciais />
         
         <Suspense fallback={<SectionLoader />}>
@@ -47,14 +46,14 @@ function App() {
           </section>
         </Suspense>
 
-        <Reviews />
+        <section id="reviews"><Reviews /></section>
 
         <Suspense fallback={<SectionLoader />}>
           <PriceEstimator />
         </Suspense>
 
-        <FAQ />
-        <About />
+        <section id="faq"><FAQ /></section>
+        <section id="about"><About /></section>
 
         <Suspense fallback={<SectionLoader />}>
           <ContactMap />

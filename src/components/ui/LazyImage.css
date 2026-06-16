@@ -1,0 +1,13 @@
+/**
+ * Lazy Image - Carregamento progressivo
+ */
+
+.lazy-image {
+  filter: blur(10px);
+  transition: filter 0.3s ease-out;
+  background-color: var(--gray-100);
+}
+
+.lazy-image--loaded {
+  filter: blur(0);
+}

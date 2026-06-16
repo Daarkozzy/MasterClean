@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800;900&display=swap');
 
 :root {
-  /* ── Core Palette: White + Blue + Gold ── */
+  /* ── Paleta Principal: Branco + Azul + Ouro ── */
   --white: #ffffff;
   --off-white: #f8faff;
   --gray-50: #f1f5fb;
@@ -27,7 +27,7 @@
   --gold-500: #e8a800;
   --gold-600: #c98900;
 
-  /* ── Semantic Tokens ── */
+  /* ── Tokens Semânticos ── */
   --bg-page: var(--white);
   --bg-section: var(--off-white);
   --bg-accent: var(--blue-50);
@@ -42,11 +42,11 @@
   --brand-gold: var(--gold-400);
   --brand-hover: var(--blue-700);
 
-  /* ── Typography ── */
+  /* ── Tipografia ── */
   --font-sans: 'Inter', sans-serif;
   --font-heading: 'Outfit', sans-serif;
 
-  /* ── Shadows ── */
+  /* ── Sombras ── */
   --shadow-xs: 0 1px 2px rgba(13, 31, 56, 0.05);
   --shadow-sm: 0 2px 8px rgba(13, 31, 56, 0.06);
   --shadow-md: 0 8px 24px rgba(13, 31, 56, 0.08);
@@ -55,19 +55,19 @@
   --shadow-blue: 0 10px 20px -5px rgba(26, 110, 245, 0.3);
   --shadow-gold: 0 10px 20px -5px rgba(249, 184, 0, 0.4);
 
-  /* ── Transitions ── */
+  /* ── Transições ── */
   --transition-fast: all 0.18s cubic-bezier(0.4, 0, 0.2, 1);
   --transition-normal: all 0.28s cubic-bezier(0.4, 0, 0.2, 1);
   --transition-slow: all 0.45s cubic-bezier(0.4, 0, 0.2, 1);
 
-  /* ── Border Radius ── */
+  /* ── Raio da Borda ── */
   --radius-sm: 8px;
   --radius-md: 14px;
   --radius-lg: 20px;
   --radius-xl: 28px;
   --radius-pill: 999px;
 
-  /* ── Gradients ── */
+  /* ── Gradientes ── */
   --gradient-hero: linear-gradient(135deg, #042470 0%, #063490 50%, #0f59d4 100%);
   --gradient-card: linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(248, 250, 255, 0.96) 100%);
 }
@@ -232,7 +232,7 @@ img {
   align-items: center;
 }
 
-/* Gold underline accent */
+/* Sublinhado dourado */
 .section-title-underline {
   width: 56px;
   height: 4px;
@@ -541,7 +541,7 @@ img {
   }
 }
 
-/* Aplicar animações sutis ao scroll */
+/* Aplicar animações sutis ao fazer scroll */
 section {
   animation: fadeInUp 0.6s ease-out forwards;
 }
@@ -566,7 +566,7 @@ section:nth-child(4) {
    PERFORMANCE OPTIMIZATIONS
 ───────────────────────────────────────── */
 
-/* Otimizar animações com GPU acceleration */
+/* Otimizar animações com aceleração de GPU */
 * {
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
@@ -598,7 +598,7 @@ button:hover,
   }
 }
 
-/* Otimizar images com lazy loading */
+/* Otimizar imagens com carregamento lazy */
 img {
   content-visibility: auto;
 }

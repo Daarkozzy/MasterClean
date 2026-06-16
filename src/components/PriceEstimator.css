@@ -592,6 +592,12 @@
     grid-template-columns: 1fr;
   }
 
+  .estimator__group-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
   .estimator__inputs {
     padding: 28px 24px;
     gap: 20px;

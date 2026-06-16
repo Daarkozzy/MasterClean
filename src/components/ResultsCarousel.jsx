@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { CaretRight, CaretLeft } from '@phosphor-icons/react';
 import './ResultsCarousel.css';
 
@@ -22,21 +22,35 @@ const results = [
 
 export default function ResultsCarousel() {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const timerRef = useRef(null);
 
-  // Auto-play a cada 5 segundos
-  useEffect(() => {
-    const interval = setInterval(() => {
+  const startTimer = () => {
+    if (timerRef.current) clearInterval(timerRef.current);
+    timerRef.current = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % results.length);
     }, 5000);
-    return () => clearInterval(interval);
+  };
+
+  useEffect(() => {
+    startTimer();
+    return () => {
+      if (timerRef.current) clearInterval(timerRef.current);
+    };
   }, []);
 
   const goToPrevious = () => {
     setCurrentIndex((prev) => (prev - 1 + results.length) % results.length);
+    startTimer();
   };
 
   const goToNext = () => {
     setCurrentIndex((prev) => (prev + 1) % results.length);
+    startTimer();
+  };
+
+  const handleIndicatorClick = (index) => {
+    setCurrentIndex(index);
+    startTimer();
   };
 
   return (
@@ -64,7 +78,7 @@ export default function ResultsCarousel() {
           <button
             key={index}
             className={`results-carousel__indicator ${index === currentIndex ? 'active' : ''}`}
-            onClick={() => setCurrentIndex(index)}
+            onClick={() => handleIndicatorClick(index)}
             aria-label={`Resultado ${index + 1}`}
           />
         ))}

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Star } from '@phosphor-icons/react';
+import { Star, CaretLeft, CaretRight } from '@phosphor-icons/react';
 import './Reviews.css';
 
 const reviews = [
@@ -26,6 +26,14 @@ export default function Reviews() {
     return () => clearInterval(interval);
   }, []);
 
+  const goToPrevious = () => {
+    setCurrentIndex((prev) => (prev - 1 + reviews.length) % reviews.length);
+  };
+
+  const goToNext = () => {
+    setCurrentIndex((prev) => (prev + 1) % reviews.length);
+  };
+
   return (
     <section className="reviews section-padding">
       <div className="container">
@@ -39,6 +47,10 @@ export default function Reviews() {
         </header>
 
         <div className="reviews__carousel">
+          <button className="reviews__arrow reviews__arrow--left" onClick={goToPrevious} aria-label="Anterior">
+            <CaretLeft size={24} weight="fill" />
+          </button>
+
           <div className="reviews__carousel-container">
             <img 
               src={reviews[currentIndex].image} 
@@ -46,6 +58,10 @@ export default function Reviews() {
               className="reviews__carousel-image"
             />
           </div>
+
+          <button className="reviews__arrow reviews__arrow--right" onClick={goToNext} aria-label="Próximo">
+            <CaretRight size={24} weight="fill" />
+          </button>
         </div>
 
         <div className="reviews__indicators">

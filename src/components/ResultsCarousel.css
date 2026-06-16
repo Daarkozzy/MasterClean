@@ -131,6 +131,9 @@
   .results-carousel__arrow {
     width: 44px;
     height: 44px;
+  }
+
+  .results-carousel__arrow--left {
     left: 8px;
   }
 

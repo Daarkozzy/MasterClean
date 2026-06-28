@@ -64,6 +64,7 @@ export default function Services() {
           {tabs.map(t => (
             <button
               key={t.id}
+              data-tab={t.id}
               className={`services__tab-trigger ${activeTab === t.id ? 'active' : ''}`}
               onClick={() => setActiveTab(t.id)}
             >

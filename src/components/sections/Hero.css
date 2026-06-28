@@ -1,6 +1,6 @@
 .hero {
   position: relative;
-  background: linear-gradient(135deg, #0f59d4 0%, #1a6ef5 100%);
+  background: linear-gradient(135deg, #042470 0%, #0a3d8f 100%);
   min-height: 100dvh;
   display: flex;
   align-items: center;
@@ -55,7 +55,7 @@
 }
 
 .hero__title--gold {
-  color: #ffd700;
+  color: #f9b707;
 }
 
 .hero__description {

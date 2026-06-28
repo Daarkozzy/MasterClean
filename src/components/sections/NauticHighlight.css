@@ -1,296 +1,413 @@
-.nautic-highlight {
-  background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
+/* ═══════════════════════════════════════════════════════
+   NAUTIC HIGHLIGHT — DESIGN DE REFERÊNCIA (SEM IMAGENS)
+═══════════════════════════════════════════════════════ */
+.nh {
+  background: var(--white);
+  position: relative;
+}
+
+/* ── Intro ───────────────────────────────────────────── */
+.nh__intro-wrap {
   position: relative;
   overflow: hidden;
-  padding: 100px 0;
-}
-
-.nautic-highlight::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-image: 
-    radial-gradient(circle at 20% 30%, rgba(15, 89, 212, 0.03) 0%, transparent 50%),
-    radial-gradient(circle at 80% 70%, rgba(26, 110, 245, 0.03) 0%, transparent 50%);
-  pointer-events: none;
-}
-
-.nautic-highlight__container {
-  max-width: 1200px;
+  padding: 100px 40px 56px;
+  max-width: 1160px;
   margin: 0 auto;
-  padding: 0 40px;
+}
+
+.nh__intro {
+  max-width: 520px;
   position: relative;
-  z-index: 1;
+  z-index: 2;
 }
 
-/* Cabeçalho */
-.nautic-highlight__header {
-  text-align: center;
-  margin-bottom: 60px;
-}
-
-.nautic-highlight__badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 0.8rem;
+.nh__eyebrow {
+  display: inline-block;
+  font-family: var(--font-heading);
+  font-size: 0.72rem;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: 2.5px;
   color: var(--brand-blue);
-  background: var(--blue-50);
-  padding: 8px 16px;
-  border-radius: var(--radius-pill);
-  margin-bottom: 20px;
-}
-
-.nautic-highlight__title {
-  font-size: 2.5rem;
-  font-weight: 900;
-  color: var(--text-primary);
-  line-height: 1.2;
   margin-bottom: 16px;
-  letter-spacing: -0.5px;
 }
 
-.nautic-highlight__highlight {
-  color: var(--brand-blue);
+.nh__intro-title {
+  font-family: var(--font-heading);
+  font-size: clamp(2.1rem, 4.2vw, 3rem);
+  font-weight: 900;
+  color: var(--blue-900);
+  line-height: 1.12;
+  letter-spacing: -0.6px;
+  margin-bottom: 18px;
 }
 
-.nautic-highlight__description {
-  font-size: 1.05rem;
+.nh__intro-desc {
+  font-size: 1rem;
   color: var(--text-secondary);
-  line-height: 1.7;
-  max-width: 600px;
+  line-height: 1.75;
+  max-width: 440px;
+}
+
+/* Bússola decorativa em marca d'água */
+.nh__compass-wrap {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0.045;
+}
+
+.nh__compass-icon {
+  color: var(--blue-800);
+}
+
+/* ── Grid dos Cards ── */
+.nh__cards-wrap {
+  padding: 0 40px 0;
+  max-width: 1160px;
   margin: 0 auto;
 }
 
-/* Conteúdo */
-.nautic-highlight__content {
+.nh__cards {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 40px;
-  align-items: stretch;
+  gap: 32px;
+  align-items: stretch; /* Alinhamento perfeito em altura */
 }
 
-.nautic-highlight__column {
-  background: linear-gradient(135deg, #0f59d4 0%, #1a6ef5 100%);
-  padding: 40px 36px;
-  border: none;
-  border-left: 4px solid #ffd700;
-  border-radius: 16px;
-  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-  position: relative;
-  overflow: hidden;
+/* ── Card Base ── */
+.nh__card {
+  border-radius: 20px;
+  padding: 48px 40px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+/* Card Esquerdo (Desafios - Escuro) */
+.nh__card--dark {
+  background: #030f26;
   color: var(--white);
-  box-shadow: 
-    0 4px 20px rgba(15, 89, 212, 0.15),
-    0 1px 3px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 20px 48px rgba(3, 15, 38, 0.15);
 }
 
-/* Efeito glassmorphism sutil */
-.nautic-highlight__column::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    135deg,
-    rgba(255, 255, 255, 0.1) 0%,
-    rgba(255, 255, 255, 0.05) 50%,
-    transparent 100%
-  );
-  pointer-events: none;
-  z-index: 0;
-  opacity: 0;
-  transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+.nh__card-title--serif {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.6rem;
+  font-weight: 400;
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.95);
+  margin: 0 0 40px 0;
+  letter-spacing: -0.2px;
 }
 
-/* Orbe decorativo no canto superior direito */
-.nautic-highlight__column::after {
-  content: '';
-  position: absolute;
-  top: -40px;
-  right: -40px;
-  width: 160px;
-  height: 160px;
-  background: radial-gradient(circle, rgba(255, 215, 0, 0.15) 0%, transparent 70%);
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 0;
-  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+/* Grid 2x2 do Card Escuro */
+.nh__challenges-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 36px 28px;
 }
 
-.nautic-highlight__column:hover {
-  border-left-color: #ffed4e;
-  box-shadow: 
-    0 12px 40px rgba(15, 89, 212, 0.25),
-    0 4px 12px rgba(0, 0, 0, 0.15);
-  transform: translateY(-6px);
+.nh__challenge-item {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
-.nautic-highlight__column:hover::before {
-  opacity: 1;
+.nh__challenge-icon {
+  color: rgba(255, 255, 255, 0.55);
+  display: inline-flex;
 }
 
-.nautic-highlight__column:hover::after {
-  transform: scale(1.2);
-  opacity: 0.8;
+.nh__challenge-text {
+  font-size: 0.88rem;
+  color: rgba(255, 255, 255, 0.78);
+  line-height: 1.6;
+  margin: 0;
 }
 
-.nautic-highlight__column-title {
+/* Card Direito (Soluções - Claro) */
+.nh__card--light {
+  background: var(--white);
+  border: 1px solid var(--gray-100);
+  box-shadow: 0 20px 48px rgba(13, 31, 56, 0.05);
+}
+
+/* Cabeçalho do Card Claro */
+.nh__solutions-header {
   display: flex;
   align-items: center;
   gap: 14px;
+  margin-bottom: 32px;
+}
+
+.nh__solutions-icon-wrap {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: #030f26;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffd700; /* Ícone dourado no círculo preto */
+  flex-shrink: 0;
+}
+
+.nh__solutions-title {
+  font-family: var(--font-heading);
   font-size: 1.35rem;
   font-weight: 800;
-  color: var(--white);
-  margin: 0 0 28px 0;
-  position: relative;
-  z-index: 1;
+  color: var(--text-primary);
+  margin: 0;
   letter-spacing: -0.3px;
 }
 
-.nautic-highlight__column-title,
-.nautic-highlight__list {
-  position: relative;
-  z-index: 1;
-}
-
-.nautic-highlight__icon {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 40px;
-  height: 40px;
-  border-radius: 10px;
-  font-weight: 800;
-  font-size: 1.2rem;
-  flex-shrink: 0;
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.nautic-highlight__icon--danger {
-  background: rgba(255, 255, 255, 0.15);
-  color: #ffd700;
-  border: 2px solid rgba(255, 215, 0, 0.3);
-}
-
-.nautic-highlight__icon--success {
-  background: rgba(255, 255, 255, 0.15);
-  color: #ffd700;
-  border: 2px solid rgba(255, 215, 0, 0.3);
-}
-
-.nautic-highlight__column:hover .nautic-highlight__icon {
-  background: rgba(255, 255, 255, 0.25);
-  border-color: rgba(255, 215, 0, 0.5);
-  transform: scale(1.05);
-}
-
-.nautic-highlight__list {
+/* Lista do Card Claro */
+.nh__solutions-list {
   list-style: none;
   padding: 0;
   margin: 0;
   display: flex;
   flex-direction: column;
+}
+
+.nh__solution-item {
+  display: flex;
+  align-items: flex-start;
   gap: 16px;
+  padding: 16px 0;
 }
 
-.nautic-highlight__list li {
-  font-size: 1rem;
-  color: rgba(255, 255, 255, 0.95);
-  line-height: 1.7;
-  padding-left: 24px;
+.nh__solution-item:first-child {
+  padding-top: 0;
+}
+
+.nh__solution-item:last-child {
+  padding-bottom: 0;
+}
+
+.nh__solution-icon {
+  color: var(--brand-blue);
+  flex-shrink: 0;
+  margin-top: 2px;
+  display: inline-flex;
+}
+
+.nh__solution-name {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: 0.96rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+}
+
+.nh__solution-desc {
+  font-size: 0.86rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ══════════════════════════════════════════════════════
+   BANNER FINAL — degradê branco → foto → escuro
+══════════════════════════════════════════════════════ */
+.nh__banner {
   position: relative;
-  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  width: 100%;
+  height: 380px;
+  margin-top: 80px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.nautic-highlight__list li::before {
-  content: '✓';
+/* Foto de fundo com blur leve */
+.nh__banner-bg {
   position: absolute;
-  left: 0;
-  top: 2px;
-  color: #ffd700;
-  font-weight: 900;
-  font-size: 1.1rem;
-  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  inset: -10px; /* compensa o blur nas bordas */
+  background-size: cover;
+  background-position: center 30%;
+  filter: blur(4px);
+  transform: scale(1.05);
+  transition: transform 7s ease, filter 0.3s ease;
 }
 
-.nautic-highlight__column:hover .nautic-highlight__list li::before {
-  transform: scale(1.15);
+.nh__banner:hover .nh__banner-bg {
+  transform: scale(1.08);
+  filter: blur(3px); /* clareia o blur sutilmente no hover */
 }
 
-/* Responsivo */
+.nh__banner-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    #ffffff 0%,
+    rgba(255, 255, 255, 0.3) 15%,
+    rgba(3, 18, 60, 0.45) 45%,
+    rgba(3, 18, 60, 0.82) 100%
+  );
+  z-index: 1;
+}
+
+.nh__banner-content {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  width: 100%;
+  max-width: 680px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0 24px 44px;
+  text-align: center;
+}
+
+.nh__banner-title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.65rem, 3.4vw, 2.3rem);
+  font-weight: 800;
+  color: var(--white);
+  line-height: 1.2;
+  letter-spacing: -0.4px;
+  margin: 0 0 10px 0;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.35);
+}
+
+.nh__banner-desc {
+  font-size: 0.92rem;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.6;
+  max-width: 440px;
+  margin: 0 0 24px 0;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.3);
+}
+
+.nh__banner-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  background: var(--brand-gold);
+  color: #0d1f38;
+  padding: 13px 30px;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-heading);
+  font-size: 0.92rem;
+  font-weight: 800;
+  text-decoration: none;
+  box-shadow: 0 6px 20px rgba(249, 184, 0, 0.4);
+  transition: transform 0.22s ease, box-shadow 0.22s ease;
+  white-space: nowrap;
+}
+
+.nh__banner-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px rgba(249, 184, 0, 0.52);
+}
+
+.nh__banner-btn svg {
+  width: 16px;
+  height: 16px;
+  transition: transform 0.2s ease;
+}
+
+.nh__banner-btn:hover svg {
+  transform: translateX(3px);
+}
+
+/* ── Tablet ──────────────────────────────────────────── */
+@media (max-width: 900px) {
+  .nh__intro-wrap,
+  .nh__cards-wrap {
+    padding-left: 28px;
+    padding-right: 28px;
+  }
+
+  .nh__cards {
+    gap: 24px;
+  }
+
+  .nh__banner {
+    height: 320px;
+    margin-top: 60px;
+  }
+}
+
+/* ── Mobile ──────────────────────────────────────────── */
 @media (max-width: 768px) {
-  .nautic-highlight {
-    padding: 70px 0;
+  .nh__intro-wrap {
+    padding: 68px 20px 40px;
   }
 
-  .nautic-highlight__container {
-    padding: 0 24px;
+  .nh__compass-wrap {
+    display: none;
   }
 
-  .nautic-highlight__content {
+  .nh__cards-wrap {
+    padding: 0 20px;
+  }
+
+  .nh__cards {
     grid-template-columns: 1fr;
-    gap: 28px;
+    gap: 24px;
   }
 
-  .nautic-highlight__title {
-    font-size: 2rem;
+  .nh__card {
+    padding: 40px 30px;
+    border-radius: 18px;
   }
 
-  .nautic-highlight__column {
-    padding: 32px 28px;
+  .nh__card-title--serif {
+    margin-bottom: 30px;
+    font-size: 1.45rem;
   }
 
-  .nautic-highlight__column-title {
-    font-size: 1.2rem;
+  .nh__banner {
+    height: 290px;
+    margin-top: 48px;
+  }
+
+  .nh__banner-content {
+    padding-bottom: 36px;
   }
 }
 
 @media (max-width: 480px) {
-  .nautic-highlight {
-    padding: 60px 0;
+  .nh__intro-wrap {
+    padding: 56px 16px 32px;
   }
 
-  .nautic-highlight__container {
-    padding: 0 20px;
+  .nh__cards-wrap {
+    padding: 0 16px;
   }
 
-  .nautic-highlight__badge {
-    font-size: 0.7rem;
-    padding: 6px 12px;
+  .nh__intro-title {
+    font-size: 1.85rem;
   }
 
-  .nautic-highlight__title {
-    font-size: 1.75rem;
+  .nh__challenges-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
   }
 
-  .nautic-highlight__description {
-    font-size: 0.95rem;
-  }
-
-  .nautic-highlight__column {
-    padding: 28px 24px;
-  }
-
-  .nautic-highlight__column-title {
-    font-size: 1.1rem;
+  .nh__challenge-item {
+    flex-direction: row;
+    align-items: flex-start;
     gap: 12px;
   }
 
-  .nautic-highlight__icon {
-    width: 36px;
-    height: 36px;
-    font-size: 1.1rem;
+  .nh__banner {
+    height: 260px;
   }
 
-  .nautic-highlight__list li {
-    font-size: 0.95rem;
-    padding-left: 22px;
-  }
-
-  .nautic-highlight__list li::before {
-    font-size: 1rem;
+  .nh__banner-btn {
+    padding: 12px 24px;
+    font-size: 0.87rem;
   }
 }

@@ -55,10 +55,10 @@ export default function NauticHighlight() {
         <div className="nh__intro">
           <span className="nh__eyebrow">Maresia &amp; Proteção</span>
           <h2 id="nh-title" className="nh__intro-title">
-            Preserve a Excelência<br />da sua Embarcação
+            Preserve a Excelência<br />do seu Náutico
           </h2>
           <p className="nh__intro-desc">
-            Higienização completa de embarcações com produtos e técnicas
+            Higienização completa de estofados náuticos com produtos e técnicas
             especializadas para remover os efeitos nocivos da maresia.
           </p>
         </div>

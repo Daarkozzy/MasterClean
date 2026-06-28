@@ -1,5 +1,6 @@
 import { lazy, Suspense } from 'react';
 import Navbar from './components/common/Navbar';
+import WhatsAppButton from './components/common/WhatsAppButton';
 import Hero from './components/sections/Hero';
 import NauticHighlight from './components/sections/NauticHighlight';
 import Services from './components/sections/Services';
@@ -63,6 +64,9 @@ function App() {
       <Suspense fallback={null}>
         <Footer />
       </Suspense>
+
+      {/* Botão Flutuante WhatsApp */}
+      <WhatsAppButton />
     </div>
   );
 }

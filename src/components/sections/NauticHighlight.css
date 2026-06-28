@@ -369,12 +369,41 @@
   }
 
   .nh__banner {
-    height: 290px;
+    height: 380px;
     margin-top: 48px;
   }
 
+  .nh__banner-bg {
+    filter: blur(1px);
+    background-position: center center;
+  }
+
+  .nh__banner:hover .nh__banner-bg {
+    filter: blur(0.5px);
+  }
+
+  .nh__banner-overlay {
+    background: linear-gradient(
+      to bottom,
+      #ffffff 0%,
+      rgba(255, 255, 255, 0.15) 12%,
+      rgba(3, 18, 60, 0.3) 40%,
+      rgba(3, 18, 60, 0.7) 100%
+    );
+  }
+
   .nh__banner-content {
-    padding-bottom: 36px;
+    padding-bottom: 40px;
+  }
+
+  .nh__banner-title {
+    font-size: 2rem;
+    text-shadow: 0 3px 12px rgba(0, 0, 0, 0.5);
+  }
+
+  .nh__banner-desc {
+    font-size: 1rem;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
   }
 }
 
@@ -403,11 +432,38 @@
   }
 
   .nh__banner {
-    height: 260px;
+    height: 360px;
+  }
+
+  .nh__banner-bg {
+    filter: blur(0.8px);
+    background-position: center center;
+  }
+
+  .nh__banner:hover .nh__banner-bg {
+    filter: blur(0.3px);
+  }
+
+  .nh__banner-overlay {
+    background: linear-gradient(
+      to bottom,
+      #ffffff 0%,
+      rgba(255, 255, 255, 0.1) 10%,
+      rgba(3, 18, 60, 0.25) 38%,
+      rgba(3, 18, 60, 0.68) 100%
+    );
+  }
+
+  .nh__banner-title {
+    font-size: 1.75rem;
+  }
+
+  .nh__banner-desc {
+    font-size: 0.95rem;
   }
 
   .nh__banner-btn {
-    padding: 12px 24px;
-    font-size: 0.87rem;
+    padding: 14px 28px;
+    font-size: 0.9rem;
   }
 }

@@ -87,11 +87,11 @@ export default function NauticHighlight() {
 
           {/* Card da Direita (Soluções - Claro) */}
           <div className="nh__card nh__card--light">
-            <div className="nh__card-header">
-              <span className="nh__card-icon-tag nh__card-icon-tag--success">
+            <div className="nh__solutions-header">
+              <span className="nh__solutions-icon-wrap">
                 <Boat size={20} weight="duotone" />
               </span>
-              <h3 className="nh__card-heading">Nossas Soluções</h3>
+              <h3 className="nh__solutions-title">Nossas Soluções</h3>
             </div>
 
             <ul className="nh__solutions-list">
